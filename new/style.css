@@ -1,0 +1,213 @@
+/**
+* CSS
+*
+* @version 1.0
+* @author Vaska
+* @author Gregory Cadar
+*/
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+  background: no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+
+body {
+	font-size: 12.5px;
+	font-family: monospace;
+	font-weight: 300;
+	word-spacing: -3px;
+	line-height: 24px;
+	background: #fff;
+	  background: no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body.section-1 { }
+body.section-2 { }
+body.section-3 { }
+
+a:link { text-decoration: underline; color: #000; }
+a:active { text-decoration: underline; color: #000; }
+a:visited { text-decoration: underline; color: #999; }
+a:hover { text-decoration: underline; color: #000; }
+
+a img { border: none; }
+
+/*#menu {
+    width: 325px;
+    overflow: auto;
+    padding-top:30px;
+    padding-left:20px;
+    padding-right: 30px;
+    top: 0px;
+    bottom: 0;
+	left: 0px;
+    position: fixed;
+    height: 100%;
+	background-color: #fff;
+}
+*/
+.accordian ul {
+	list-style-type:none;
+	margin: 0 0 12px 0;
+}
+
+.accordian-group li {
+	list-style:none;
+}
+
+/*#menu a:visited {
+	color: #999;
+}*/
+
+#section-title {
+	font-family: monospace;
+	letter-spacing: 0.75px;
+	word-spacing:-3px;
+	line-height: 3;
+	text-decoration: underline;
+}
+
+#section-title a:link, a:visited {
+	color:#000;
+}
+
+
+#ITP-nav, #dataviz-nav, #ASH-nav, #NYM-nav, #EH-nav, #EDG-nav, #ETC-nav {
+	text-indent: 15px;
+	margin-bottom: 16px;
+}
+
+.collapse a:visited {
+	color:#999;
+}
+
+.collapse a {
+	text-decoration: none;
+}
+
+
+#content {
+    height: 100%;
+    margin: 30px 0 0 325px;
+    top: 0;
+}
+
+
+.container {
+    padding: 0px 5px 25px 5px;
+}
+
+#content p { width: 400px; margin-bottom: 9px; }
+
+
+
+h1 { font-size: 32px; font-family: monospace;}
+h2 { font-size: 24px; font-family: monospace;}
+h3 { font-size: 16px; font-family: monospace;}
+h4 { font-size: 12px; font-family: monospace;}
+
+#img-container	{
+	margin: 0 0 0 50px;
+	padding: 35px 0 0 0;
+	max-width:950px;
+}
+
+#img-container img {
+	margin-bottom:45px;
+}
+
+#img-container div {
+	margin-bottom: 45px;
+}
+
+
+#once { clear: left; }
+
+hr {
+	width: 800px;
+	height: 3.5px;
+	background-color: #000;
+}
+
+.pics {
+	top: 0px;
+	bottom: 10px;
+}
+
+.navbar-default {
+	background-color: #fff;
+	border:none;
+	box-shadow: none;
+	background-image:none;
+	width:325px;
+}
+
+.navbar-default .navbar-toggle {
+	border:none;
+}
+
+.navbar-collapse {
+    overflow: auto;
+    padding-left:20px;
+    padding-right: 30px;
+    top: 0px;
+    bottom: 0;
+	left: 0px;
+/*    height: 100%;
+*/	background-color: #fff;
+	border: none;
+}
+
+.collapse a:hover {
+	text-decoration: underline;
+}
+
+.navbar-brand {
+    padding-left:20px;
+	margin-top: 20px;
+	text-shadow: none;
+	font-size:12.5px;
+	color:#000;
+}
+
+.navbar-toggle .icon-bar {
+	display: block;
+	width:22px;
+	border-radius:0px;
+	background-color:black;
+}
+
+.navbar-toggle {
+	margin-top: 30px;
+	margin-right: 0px;
+	border-radius: 0px;
+}
+
+.navbar-brand a:link, a:active, a:hover {
+	color:#000;
+}
+
+.navbar-brand a:visited {
+	color: #999;
+}
+
+#description_text {
+	max-width:600px;
+}
+
+#description_text p {
+	margin-bottom: 15px;
+}
