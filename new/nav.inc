@@ -57,12 +57,13 @@ $(document).ready(function() {
 	<ul class="accordion-group">
 	<li style="list-style:none;"><a href="#ITP-nav" data-toggle="collapse" data-parent="#accordion2"><div id="section-title">@ NYU ITP</div></a>
 	<ul style="list-style:none;" class="collapse" id="ITP-nav">
+    <li><a href="http://xujenna.com/speakmemory/" target="new">Speak, (Random Access) Memory</a></li>
+    	<li><a href="/ITP/CBTapp/index.php" onclick="do_click();">A Cognitive Behavioral Therapy App</a></li>
 		<li><a href="http://xujenna.com/ig_analyzer/" target="new">Instagrammed Markers of Depression</a></li>
-		<li><a href="http://bl.ocks.org/xujenna/raw/9e391d656fc95eb1dea4bc330cd34cc7/" target="new">Mindwandering Study #2</a></li>
-		<li><a href="http://xujenna.com/ITP/PupilTracker/index.php">Mindwandering Study #1</a></li>
+<!-- 		<li><a href="http://bl.ocks.org/xujenna/raw/9e391d656fc95eb1dea4bc330cd34cc7/" target="new">Mindwandering Study #2</a></li>
+ -->	<li><a href="http://xujenna.com/ITP/PupilTracker/index.php">A Mindwandering Study</a></li>
 		<li><a href="/ITP/GoodVibes/index.php" onclick="do_click();">Good Vibrations</a></li>
 		<li><a href="/ITP/Jukebox/index.php" onclick="do_click();">Photo Jukebox</a></li>
-
 	</ul>
 	</li>
 
