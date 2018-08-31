@@ -9,11 +9,14 @@
     body {
       background-color:#f3f2f7;
       font-family: fanwood, serif;
-      font-size:17px;
+      font-size:16px;
       font-style: text;
       text-align: center;
       letter-spacing: 0.5px;
+      margin:0px;
+
   }
+
 
   svg {
   /*  border: 1px solid #f0f;
@@ -23,21 +26,30 @@
       display:inline;
   }
 
+hr {
+  border-top: 1px solid black;
+}
   .axis line,
-  .axis path {
+  .axis path,
+  .smallAxis line,
+  .smallAxis path {
     fill:none;
     stroke:silver;
     stroke-width:1;
   }
 
-
-  .axis text {
+  .axisLabel, .axis text {
     fill: black;
     font-family: europa, sans-serif;
     font-style: light;
     text-transform: uppercase;
     font-size: 10px;
     letter-spacing: 1px;
+}
+
+.axisLabel {
+ letter-spacing: 2.5px;
+ font-weight: bold;
 }
 
   .tick line {
@@ -50,6 +62,21 @@
   }
 
 
+.smallAxisLabel, .smallAxis text {
+  font-size:8.5px;
+  font-family: europa, sans-serif;
+}
+
+.matrix-label {
+  font-size:8.5px;
+  font-family: europa, sans-serif;
+  transform:rotate(-45deg);
+}
+.regression {
+  stroke-width: 2px;
+/*  stroke: black;
+*/  stroke-dasharray: 3.5,1.5;
+}
 
   .time-title {
     display:inline;
@@ -115,52 +142,67 @@
   font-size: 12px;
 }
 
-
   .container {
     overflow: auto;
     margin-top: 70px;
     margin-bottom: 150px;
     display:block;
-    width:100%;
+    width:100vw;
   }
 
 
 
   #intro-container {
     height:100%;
-    width:100%;
-    /*display:block;*/
+/*    width:100%;
+*/    /*display:block;*/
     overflow: auto;
     /*background-color: silver;*/
     color: white;
-    margin-bottom: 170px;
-    padding: 105px 0 0 0;
+/*    margin-bottom: 170px;
+*/    padding: 5%;
+    display:flex;
+    align-items:center;
   }
 
-  .hero-imgs {
+  #hero-img {
     overflow: auto;
     position:absolute;
     left:0px;
     top:0px;
     width:100%;
     z-index:-10;
-    opacity:0.15;
+    opacity: .9;
   }
 
-  .hero-imgs img {
-    opacity:0.7;
+  #hero-img img {
     min-width:100%;
     min-height: 100%;
-
   }
 
   #intro-text {
-    width:60%;
-    margin:auto;
-    column-count: 3;
-    column-gap: 30px;
+    width:25%;
+/*    margin:auto;
+*/ /* -webkit-columns: 2;
+     -moz-columns: 2;
+          columns: 2;
+  -moz-column-fill: balance;
+       column-fill: balance;    
+  -webkit-column-gap: 30px;
+     -moz-column-gap: 30px;
+          column-gap: 30px;    */
     text-align: left;
     line-height: 22px;
+    display:inline-block;
+    margin-top: -10%;
+
+  }
+
+  #hed {
+    width: 50%;
+    line-height:60px;
+    text-align: left;
+    padding-left: 10%;
   }
 
   #hed h1 {
@@ -169,16 +211,16 @@
   }
 
   #hed p {
-    margin-bottom: 5px;
+    margin-bottom: 0px;
+    font-size:15px;
   }
 
   h1 {
-    font-size:60px;
+    font-size:40px;
     font-family: fanwood, serif;
     font-style: regular;
     font-weight: 400;
     margin-bottom: 25px;
-    line-height:100px;
     margin-top:25px;
   }
   h2 {
@@ -214,62 +256,61 @@
     width:100%;
     position: fixed;
     bottom:0%;
-    padding-bottom:6px;
-    padding-top: 16px;
+    padding-bottom:20px;
+    padding-top: 20px;
     background-color: white;
     margin-bottom:0;
     margin-left:0;
   }
 
-  .description {
+  #context{
+    margin:auto;
+    display:block;
+  }
+
+  .description{
+    display:flex;
+    align-items:center;
+    margin: 5% 20% 0% 20%;
+  }
+
+  .description-body {
     display:inline-block;
-    width:340px;
     text-align: left;
-    margin-top: 30px;
-    padding-right: 60px;
-    vertical-align:top;
-  }
-
-  .description h2 {
-    margin-top:10px;
-    margin-bottom: 10px;
-  }
-
-  #affectiva-container .description{
-    margin-top: 75px;
-  }
-  #context-description {
-    width:360px;
-    padding-right: 0px;
-    margin-top: 0px;
-    padding-top: 30px;
-    padding-bottom: 20px;
-    margin-left: -20px;
-    font-family: europa, sans-serif;
+    border-left: 1px solid;
+    border-right: 1px solid;
+    padding: 0px 60px;
+    margin: 0px 60px;
     font-size:15px;
-    letter-spacing: 1px;
-    /*text-transform: uppercase;*/
-    font-weight:600;
   }
 
-  .arrow {
-    display:block;
-    width: 1px;
-    height:100px;
-    background-color:white;
-    margin: auto;
-    margin-top:
+  .description-hed {
+    display:inline-flex;
+    align-items:center;
+    text-align:left;
+    width:60%;
   }
-  .arrow::after {
-    content: "\25BE";
-    display:block;
-    position:relative;
-    top:100px;
-    text-align: center;
-    margin-left:-4px;
-    line-height:2px;
+  .description-key{
+    font-family: europa, sans-serif;
+    font-size:10px;
+    text-transform: uppercase;
+    text-align:left;
+    min-width:100px;
+  }
+  .description-key p {
+    line-height: 22px;
+}
 
+  .description p {
+    margin:0;
+    padding:0;
   }
+
+  .description a {
+    color:black;
+  }
+
+
 
   .alt-axis {
     font-family: europa, sans-serif;
@@ -281,15 +322,230 @@
 
   .compulsion-x {
     font-family: europa, sans-serif;
-    font-weight:600;
-    font-size:11.5px;
-    text-align: center;
+    font-weight:800;
+    font-size:12px;
+    text-align: left;
   }
+
+  #intro-text a {
+    color:white;
+  }
+
+  #correlation-container {
+  overflow: visible;
+  width:100%;
+  display:inline-block;
+  margin:auto;
+  padding-top: 120px;
+  padding-bottom: 150px;
+/*  padding: 0 0 0 0;
+*/  text-align: center;
+  background-color:#fcf9ef;
+}
+#correlation-description-key{
+  min-width: 120px;
+}
+
+#variable-description-container{
+  width:60%;
+/*  display: none;
+*/  margin:auto;
+  margin-top:50px;
+  font-size: 11px;
+  font-family: europa, sans-serif;
+  text-align: left;
+  padding:14px;
+  border: 1px solid black;
+}
+#variable-description-title {
+  padding-bottom: 10px;
+  border-bottom: 1px solid black;
+  margin-bottom: 10px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+#variable-description {
+  column-count: 6;
+  -webkit-column-count: 6; /* Chrome, Safari, Opera */
+  -moz-column-count: 6; /* Firefox */
+  column-gap: 10px;
+}
+#variable-description p {
+  margin:5px;
+  -webkit-column-break-inside: avoid;
+          page-break-inside: avoid;
+               break-inside: avoid;
+}
+
+#footer{
+  background-color:#000;
+  color:white;
+  margin:auto;
+  font-family: europa, sans-serif;
+  width:100%;
+  height: 25px;
+  padding: 20px 0 20px 0;
+  vertical-align: middle;
+  font-size:11px;
+  text-align: center;
+/*  border-top: 1px solid black;
+*/  border-width: 90%;
+letter-spacing: 1px;
+}
+
+#footer a{
+  color:white;
+}
+
+.selection {
+  fill: orangered;
+  stroke-width:1.5;
+  stroke:orangered;
+}
+
+.viewport-nav {
+  font-size:11px;
+  display:inline-block;
+  font-weight: bold;
+  position:absolute;
+  font-family: europa, sans-serif;
+  text-transform: uppercase;
+}
+
+#viewport-back {
+  left:55px;
+  top:50px;
+}
+#viewport-forward {
+  right:55px;
+  top:50px;
+
+}
+
+
+@media screen and (max-width: 1535px){
+  #intro-text {
+      width:35%;
+  }
+
+  .description {
+    margin: 5% 18% 0% 18%;
+  }
+
+  h1 {
+    font-size:36px;
+    font-family: fanwood, serif;
+    font-style: regular;
+    font-weight: 400;
+    margin-bottom: 25px;
+    margin-top:25px;
+  }
+
+}
+
+
+@media screen and (max-width: 1330px){
+  #intro-text {
+      width:45%;
+      margin-top: -20%;
+  }
+
+  #hed {
+    width:35%;
+  }
+
+  .description {
+    margin: 5% 15% 0% 15%;
+  }
+
+  h1 {
+    font-size:36px;
+    font-family: fanwood, serif;
+    font-style: regular;
+    font-weight: 400;
+    margin-bottom: 25px;
+    margin-top:25px;
+  }
+}
+
+@media screen and (max-width: 1250px){
+  #hed {
+    width:25%;
+    padding-right:10%;
+  }
+
+  .description{
+    display:block;
+  }
+
+  .description-hed{
+    width:inherit;
+    text-align: center;
+    display:block;
+    width: 87%;
+    margin:auto;
+    border-bottom: 1px solid black;
+    margin-bottom: 20px;
+  }
+
+  .description-body{
+    display: inline-block;
+    width:63%;
+    border-left: none;
+    padding: 0px 50px 0px 0px;
+    margin: 20px 50px 0px 0px;
+  }
+
+  .description-key{
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width:1010px){
+  #correlation-description-body{
+    width:58%;
+  }
+  #correlation-description-hed{
+    width:95%;
+  }
+}
+
+@media screen and (max-width: 900px){
+  .description-hed{
+    width:93%;
+  }
+
+  .description{
+    margin:5% 10% 0% 15%;
+  }
+
+  .description-body{
+    width:70%;
+    border:none;
+    padding: 0px;
+    margin:20px 50px 0px 0px;
+  }
+
+  #intro-text{
+    width:55%;
+    margin-top: -25%;
+  }
+
+  #hed{
+    padding: 0% 5% 0% 8%;
+  }
+}
+
+
   </style>
 
 
 </head>
 <body>
+  <title>Speak, (Random Access) Memory</title>
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <script src="https://d3js.org/d3-time.v1.min.js"></script>
   <script src="d3-tip.js"></script>
@@ -298,69 +554,154 @@
   <link rel="stylesheet" href="https://use.typekit.net/fao6qlb.css">
 
   <div id="intro-container">
-    <div class="hero-imgs"><img src="imgs/snapshot-00000-2018-04-19_02-22-07.601.jpg"></div>
-    <div class="hero-imgs"><img src="imgs/snapshot-00000-2018-04-19_03-22-10.518.jpg"></div>
-    <div class="hero-imgs"><img src="imgs/snapshot-00000-2018-04-19_13-11-32.417.jpg"></div>
-    <div class="hero-imgs"><img src="imgs/snapshot-00000-2018-04-19_14-11-35.779.jpg"></div>
-    <div class="hero-imgs"><img src="imgs/snapshot-00000-2018-04-19_15-22-34.598.jpg"></div>
-    <div class="hero-imgs"><img src="imgs/snapshot-00000-2018-04-19_16-22-37.748.jpg"></div>
-    <div class="hero-imgs"><img src="imgs/snapshot-00000-2018-04-19_17-22-40.649.jpg"></div>
-    <div class="hero-imgs"><img src="imgs/snapshot-00000-2018-04-19_18-45-16.276.jpg"></div>
-    <div class="hero-imgs"><img src="imgs/snapshot-00000-2018-04-19_19-45-20.014.jpg"></div>
-    <div class="hero-imgs"><img src="imgs/snapshot-00000-2018-04-19_21-50-44.028.jpg"></div>
-    <div class="hero-imgs"><img src="imgs/snapshot-00000-2018-04-19_22-50-46.904.jpg"></div>
-
+    <div id="hero-img"><img src="composite4.jpg"></div>
     <div id="hed">
-    <p>😐😐😐😐😱</p>
+    <p>😐😐😐😱</p>
     <h1>Speak, (Random Access) Memory</h1>
   </div>
   <div id = "intro-text">
-    This semester, I began work on a system of trackers for a whole host of potential/evidenced metrics of depression, in hopes of monitoring its cyclical nature and identifying correlations with my activity and environment. I was motivated to do this for three main reasons: 1) I have a terrible memory, which makes it difficult to accurately report necessary information in weekly therapy sessions, 2) I have a terrible memory, and therefore tend to be totally unaware of my long-term behavior, and 3) I'm slightly impulsive, and therefore tend to be totally unconcerned with the repercussions of my long-term behavior.<p>Ultimately, I hope to predict the onset of depression by feeding this data into a neural network, and perhaps even preempt it by teaching the neural net to recommend/enforce interventions. While these foregoing goals are outside the scope of this semester, below are visualizations of the data I collected with my homemade python trackers; these often also employ various API services, as detailed below.</p>
+     As a professional graphic designer, a grad student in a technology program, a handheld-device-phobe, and a single person who lives alone in NYC, I probably get more facetime with my computer than with all of humanity combined. So during the fall of 2018, when I began work on a system of trackers for a host of potential/evidenced metrics of depression, it was pretty clear that my laptop would be my best data collector.
+    <p>Speak, (Random Access) Memory is a project that hopes to monitor depression's cyclical nature, identify correlations between mood and my activity/environment, predict the onset of depression by feeding this data into a machine-learned model/neural network, and ultimately preempt it by teaching the system to recommend and enforce interventions. As a preliminary exercise, I've trained a couple ML models to predict mood with only a month of data; <a href="http://www.xujenna.com/itp_blog/2018/05/02/final-pt-2-data-analysis/" target="new">see the documentation here</a>.</p><p>Presently, there are seven trackers collecting data on 45 metrics; below are visualizations of the data collected by four of them: my <a href="http://www.xujenna.com/itp_blog/2018/04/26/final/" target="new">homemade python trackers</a>. The last chart visualizes correlations among 40 select metrics. </p><p>Use the brush at the bottom of the window to filter and navigate through my entire history of data.</p>
   </div>
-    <br><br><br><br><p><h5>To begin, filter the data by date:</h5><span class="arrow"></span></p>
   </div>
-  </div>
-  <div class="container" id="context-container">
-    <div class="description" id="context-description"></div>
-    <svg id="context"></svg>
   </div>
 
   <div class="container" id="reporter-container">
-    <div class="description"><h2>Mood Reporter</h2>
-    Because affect is difficult to measure, psychiatry traditionally employs self-administered questionnaires as diagnostic tools for mood disorders; these usually attempt to quantify the severity of DSM-IV criteria. The module for depression is called the PHQ-9, and I've adapted several of its questions into my own questionnaire, which python deploys every hour via the command line. The visualization to the left includes ratings from 1-5 for <span style="color:rgb(255, 0, 255)"><b>mood</b></span>, <span style="color:rgb(245, 205, 0)"><b>morale</b></span>, <span style="color:rgb(0, 0, 255)"><b>stress</b></span>, and <span style="color:rgb(200, 200, 220)"><b> fatigue</b> </span>. Hovering over the fuchsia points on the mood line will display qualitative explanations for its respective score. The <span style="color:rgb(0, 0, 255)"><b>x's</b></span> denote the occurence of compulsions.
+    <div class="description">
+      <div class="description-hed"><h2>Mood Reports</h2></div>
+      <div class="description-body">
+        Psychiatry traditionally employs self-administered questionnaires as diagnostic tools for mood disorders; these usually attempt to quantify the severity of DSM-IV criteria. The module for depression is called the PHQ-9, and I've adapted several of its questions into my own questionnaire, which python deploys every hour via the command line.
+      </div>
+      <div class="description-key">
+        <p><span style="color:rgb(255, 0, 255)">&block; &nbsp;</span> Mood</p>
+        <p><span style="color:rgb(245, 205, 0)">&block; &nbsp;</span> Morale</p>
+        <p><span style="color:rgb(0, 0, 255)">&block; &nbsp;</span> Stress</p>
+        <p><span style="color:rgb(200, 200, 220)">&block; &nbsp;</span> Fatigue</p>
+        <p><span style="color:rgb(0, 0, 255); font-size:18px; line-height: 14px"><b>&times;&nbsp;</b></span> Compulsions</p>
+      </div>
+
     </div>
     <svg id="reporter"></svg>
   </div>
 
   <div class="container" id="affectiva-container">
-    <div class="description"><h2>Facial Analysis</h2>
-      This tracker utilizes the Affectiva API, an emotion and facial recognition model. Via my laptop's webcam, it analyses my face for a minute every hour; a python script grabs the min and max <span style="color:rgb(255, 0, 255)"><b>attention</b></span> and <span style="color:rgb(0, 225, 225)"><b>valence</b></span> values, as well as the expressions made (plotted with emoji) and the amount of times I <span style="color:rgb(0, 0, 255)"><b>blinked</b></span> (calculated by dividing the number of times the eyeClosure variable hit 99.9%, divided by 2).<p><p>The yellow area chart represents my productivity scores as calculated by the RescueTime API, which considers both laptop and phone activity.</p><p>I choose these variables as <a href="http://www.xujenna.com/itp_blog/2018/02/01/blinking-mind-wandering/" target="new">an attempt to measure mindwandering</a>, a marker strongly correlated with depression. The emojis were included to illustrate the concept of valence (and also just for funsies).</p>
+    <div class="description">
+      <div class="description-hed"><h2>Facial Analysis</h2></div>
+      <div class="description-body">
+      This tracker utilizes the Affectiva API, an emotion and facial recognition model. Via my laptop's webcam, it analyses my face for a minute every hour; a python script counts blinks and calculates the averages for attention and valence scores. The yellow area chart in the background are my productivity scores via the Rescuetime API. I choose these variables as <a href="http://www.xujenna.com/itp_blog/2018/02/01/blinking-mind-wandering/" target="new">an attempt to measure mindwandering</a>, a marker strongly correlated with depression.
+      </div>
+      <div class="description-key">
+        <p><span style="color:rgb(0, 0, 255)">&block; &nbsp;</span> Blinks</p>
+        <p><span style="color:rgb(255, 0, 255)">&block; &nbsp;</span> Attention</p>
+        <p><span style="color:rgb(0, 225, 225)">&block; &nbsp;</span> Valence</p>
+        <p><span style="color:rgb(245, 205, 0)">&block; &nbsp;</span> Productivity</p>
+      </div>
     </div>
     <svg id="affectiva"></svg>
   </div>
 
   <div class="container" id="keylogger-container">
-    <div class="description"><h2>Keylogger Sentiments</h2>
-      The idea for this is simply to discern the sentiment of everything I type. I wrote a keylogger in python, which collects any coherent phrase to be sent to IBM Watson's Tone Analyzer every hour. The API provides several sentiment categories: <span style="color:rgb(255, 0, 255)"><b>joy</b></span>, <span style="color:rgb( 0, 255, 127)"><b>confidence</b></span>, <span style="color:rgb(245, 205, 0)"><b>analysis</b></span>, <span style="color:rgb(200, 200, 220)"><b>tentativeness</b></span>, <span style="color:rgb(0, 225, 225)"><b>sadness</b></span>, <span style="color:rgb(0, 0, 225)"><b>fear</b></span>, and <span style="color:rgb(255, 105, 180)"><b>anger</b></span>. The actual logged content has been redacted for publication.
+    <div class="description">
+      <div class="description-hed">
+      <h2>Keylogged Sentiments</h2>
+      </div>
+      <div class="description-body">
+      As an attempt to automatically measure mood, I created a sentiment analysis keylogger for my computer. Written in python, the keylogger collects any coherent phrase I type, and sends the log every hour to IBM's Tone Analyzer API, which returns sentiment scores for each sentence; below, only scores over 50% are visualized. The logs themselves have also been redacted, but the length of the analyzed sentence is encoded in each circle's diameter. At the end of May, I added keystroke dynamics and simple text analysis to this keylogger, which I hope to visualize soon.
+      </div>
+      <div class="description-key">
+        <p><span style="color:rgb(255, 0, 255)">&block; &nbsp;</span> Joy</p>
+        <p><span style="color:rgb( 0, 255, 127)">&block; &nbsp;</span> Confidence</p>
+        <p><span style="color:rgb(245, 205, 0)">&block; &nbsp;</span> Analysis</p>
+        <p><span style="color:rgb(200, 200, 220)">&block; &nbsp;</span> Tentativeness</p>
+        <p><span style="color:rgb(0, 225, 225)">&block; &nbsp;</span> Sadness</p>
+        <p><span style="color:rgb(0, 0, 225)">&block; &nbsp;</span> Fear</p>
+        <p><span style="color:rgb(255, 105, 180)">&block; &nbsp;</span> Anger</p>
+    </div>
     </div>
     <svg id="keylogger"></svg>
   </div>
 
+  <div class="container" id="tabCounter-container">
+    <div class="description">
+      <div class="description-hed">
+        <h2>Browser Activity</h2>
+      </div>
+      <div class="description-body">
+        I'm an incorrigible tab hoarder, but if I'm feeling especially restless or unmotivated, I'm even more likely to open new—or activate existing—tabs but not actually consume their content, oftentimes leaving them open indefinitely. Inspired by the relationship between my mental states and my browser activity, I created a Chrome Extension that tracks tabs as they're created and activated, their corresponding favicons, and the final hourly count of tabs and windows left open.
+      </div>
+      <div class="description-key">
+        <p><span style="color:rgb(0, 255, 127)">&block; &nbsp;</span> Created</p>
+        <p><span style="color:rgb(245, 205, 0)">&block; &nbsp;</span> Activated</p>
+        <p><span style="color:rgb(255, 0, 255)">&block; &nbsp;</span> Final Count</p>
+    </div>
+    </div>
+    <svg id="tabCounter"></svg>
+  </div> 
+  <div class="container" id="context-container">
+    <div class="viewport-nav" id="viewport-back">&ltrif; prev</div>
+    <svg id="context"></svg>
+    <div class="viewport-nav" id="viewport-forward">next &rtrif;</div>
+
+  </div>
+<div class="container" id="correlation-container">
+  <div class="description" id="correlation-description">
+    <div class="description-hed" id="correlation-description-hed">
+      <h2>Okay, Computer</h2>
+    </div>
+    <div class="description-body" id="correlation-description-body">
+      So what is the data telling us? To get a sense of emerging relationships, we can look at 1) scatterplots, the shape of which suggests strength of correlation, 2) linear regression, the slope of which expresses the magnitude of how positive or negative a correlation is, and 3) Pearson coefficients, which measure the linear correlation between two variables.<br>
+        <p>A pearson coefficient matrix can be generated by comparing <b>"All"</b> with <b>"All"</b> via the dropdown menus to the right (may take a minute to generate). Comparing a metric with another metric, or <b>"All"</b>, will generate scatterplots and trendlines.</p>
+    </div>
+    <div class="description-key" id="correlation-description-key">
+      <p><b>Generate a matrix:</b></p><br>
+      <form>
+      <select id = "selection1">
+      <option selected="selected"><b>Select an X-Axis Metric:</b></option>
+      </select>
+      </form>
+      <form>
+        <select id = "selection2">
+        <option selected="selected"><b>Select an Y-Axis Metric:</b></option>
+        </select>
+      </form>
+      <br>
+      <hr>
+      <br>
+        <p><span style="color:rgb(255, 0, 255)">&block; &nbsp;</span> Positive</p>
+        <p><span style="color:rgb(0, 0, 255)">&block; &nbsp;</span> Negative</p>
+
+    </div>
+    </div>
+    <br><br><br>
+  <svg id="correlations"></svg>
+    <div id="variable-description-container">
+  <div id="variable-description-title">METRICS KEY</div>
+  <div id="variable-description">
+  </div>
+  <div id="temp-instructions">
+        Use the dropdown menus at the top right to generate a matrix (may take a minute to generate).
+      </div>
+</div>
+</div>
+
+<div id="footer">
+  An ongoing project by <a href="http://www.xujenna.com" target="new">Jenna Xu</a>, started during the Spring 2018 semester at NYU ITP. Featured in Mozilla's <a href="https://foundation.mozilla.org/opportunity/artists-open-web/" target="new"><i>Artists Open Web</i></a> and <a href="https://mozillafestival.org/" target="new">Mozilla Festival 2018</a>.</div>
 
 <script>
 
-var margin = {top: 50, right: 30, bottom: 50, left: 50};
-var margin2 = {top: 5, right:30, bottom:20, left:50};
+var margin = {top: 50, right: 40, bottom: 50, left: 40};
+var margin2 = {top: 5, right:2, bottom:20, left:2};
 
-var width = 1000 - margin.left - margin.right,
-height = 500 - margin.top - margin.bottom;
+1680
+var width = (window.innerWidth - (window.innerWidth * .27)) - margin.right - margin.left,
+height = 550 - margin.top - margin.bottom;
 
 var height2 = 80 - margin2.top - margin2.bottom;
-
+var width2 = (window.innerWidth - (window.innerWidth * .18)) - margin2.right - margin2.left;
 var body = d3.select("body");
 
 var contextSVG = d3.select("#context")
-      .attr("width", width + margin.left + margin.right)
+      .attr("width", width2 + margin2.left + margin2.right)
       .attr("height", height2 + margin2.top + margin2.bottom);
 
 
@@ -374,7 +715,7 @@ var xScale = d3.scaleTime()
   // .domain([xMin, xMax]);
 
 var xScale2 = d3.scaleTime()
-.range([0,width]);
+.range([0,width2]);
 
 var yScale = d3.scaleLinear()
   .range([height,0]);
@@ -385,7 +726,7 @@ var yScale2 = d3.scaleLinear()
 
 var xAxis = d3.axisBottom(xScale).tickPadding(10);
 var xAxis2 = d3.axisBottom(xScale2).tickSize(-height2).tickPadding(10);
-var yAxis = d3.axisLeft(yScale).tickSize(-width).ticks(5).tickPadding(10);
+var yAxis = d3.axisLeft(yScale).tickSize(-width).ticks(5).tickPadding(10).tickSizeOuter(0);
 
 
 var reporterChart = reporterSVG.append("g")
@@ -399,7 +740,7 @@ var contextChart = contextSVG.append("g")
 
 
   var brush = d3.brushX()
-    .extent([[0,0], [width, height2]])
+    .extent([[0,0], [width2, height2]])
     .on("brush end", brushed);
 
 
@@ -452,12 +793,12 @@ d3.tsv("responses.tsv", function (err, responses) {
 
 
 responses.forEach(function(d){
-  var dateTime = new Date(String(d.time));
+  var dateTime = new Date(d.unix_time * 1e3);
   d.time = dateTime;
   d.mood = +d.mood;
   d.fatigue = +d.fatigue;
   d.morale = +d.morale;
-  d.social = +d.social;
+  d.unique_interactions = +d.unique_interactions;
   d.stress = +d.stress;
 });
 
@@ -494,11 +835,19 @@ newResponses.push(d)
 })
 
 
+var xScaleMax = d3.max(newResponses, function(d) {return d.time;})
+var xScaleMin = new Date(1524982083090)
 
-xScale.domain(d3.extent(newResponses, function(d) {return d.time;}));
+xScale.domain([xScaleMin, xScaleMax]);
 yScale.domain([0,5]);
-xScale2.domain(xScale.domain());
 yScale2.domain(yScale.domain());
+
+var domainMax = new Date(parseInt(newResponses[newResponses.length-1].unix_time * 1000));
+var domainMin = new Date();
+domainMin.setMonth(domainMax.getMonth() - 1);
+
+xScale2.domain([domainMin, domainMax])
+
 
 reporterChart.append("g")
   .attr("class", "axis axis--x")
@@ -541,13 +890,15 @@ reporterChart.append("path")
   .attr("fill", "lavender")
   .attr("opacity", 0.7);
 
+
+
 var compulsionCircles = reporterChart.selectAll(".compulsion-circle")
   .data(newResponses)
   .enter()
   .append("text")
   .attr("class","compulsion-x")
   .attr("x", function(d) {return xScale(d.time) - 1200})
-  .text(function(d){ return d.compulsions == "False" || d.compulsions == null ? console.log("none") : "x"})
+  .text(function(d){ return d.compulsions == "False" || d.compulsions == null ? console.log("null") : "×"})
   .attr("y", function(d){return yScale(d.stress) + 3;})
   .attr("opacity", 0.7)
   .attr("fill", "blue");
@@ -569,38 +920,174 @@ var moodCircles = reporterChart.selectAll(".moodCircle")
   .attr("class","moodCircle")
   .attr("cx", function(d) {return xScale(d.time)})
   .attr("r", function(d) {return d.mood == null ? 0 : 3; })
-  .attr("cy", function(d) { return yScale(d.mood) - 2;})
+  .attr("cy", function(d) { return yScale(d.mood);})
   .attr("opacity", 0.7)
   .attr("fill", "magenta");
 
+
+
+
+
+// contextChart.append("path")
+//   .attr("d", moodLine2(newResponses))
+//   .attr("stroke", "black")
+//   .attr("stroke-width", 2)
+//   .attr("fill", "none")
+//   .attr("class", "line");
+
+var month = new Array();
+month[0] = "January";
+month[1] = "February";
+month[2] = "March";
+month[3] = "April";
+month[4] = "May";
+month[5] = "June";
+month[6] = "July";
+month[7] = "August";
+month[8] = "September";
+month[9] = "October";
+month[10] = "November";
+month[11] = "December";
+
+
+var dataLength = newResponses.length
+var maxDate = newResponses[dataLength-1]['time']
+var maxDateDay = new Date()
+maxDateDay.setDate(maxDate.getDate() - 1)
+
+
+var contextNavBack = d3.select("#viewport-back");
+var contextNavForward = d3.select("#viewport-forward");
+var currentDisplayDate = new Date(parseInt(newResponses[newResponses.length-1].unix_time * 1000));
+var currentDisplayIndex = currentDisplayDate.getMonth();
+
+
+// var firstDate = new Date(1524982083090);
 
 contextChart.append("g")
     .attr("class", "axis")
     .attr("transform", "translate(0," + height2 + ")")
     .call(xAxis2);
 
-contextChart.append("g")
+var currentID = "March";
+
+contextChart.selectAll(".mood-bars")
+  .data(newResponses)
+  .enter().append("rect")
+  .filter(function(d) {return d.unix_time > 1524981000})
+  .attr("class", "mood-bars")
+  .attr("id", function(d){
+    var currentDate = new Date(parseInt(d.unix_time * 1000))
+    var currentMonth = currentDate.getMonth()
+    if (month[currentMonth] == currentID) {
+      console.log("skip")
+    }
+    else {
+      currentID = month[currentMonth];
+      return currentID;
+    }
+  })
+  .style("fill", "grey")
+  .style("opacity", "0.3")
+  .attr("x", function(d) {return xScale2(d.time)})
+  .attr("width", "3px")
+  .attr("y", function(d) {return yScale2(d.mood)})
+  .attr("height", function(d) {return height2 - yScale2(d.mood)})
+
+
+var contextBrush = contextChart.append("g")
     .attr("class", "brush")
     .call(brush)
-    .call(brush.move, xScale.range());
-
-contextChart.append("path")
-  .attr("d", moodLine2(newResponses))
-  .attr("stroke", "black")
-  .attr("stroke-width", 2)
-  .attr("fill", "none")
-  .attr("class", "line");
+    .call(brush.move, [maxDateDay, maxDate].map(xScale2));
 
 
+var prevLink = document.getElementById(month[currentDisplayIndex-1])
+var nextLink;
+
+
+contextNavBack.text("◂ " + month[currentDisplayIndex-1]).style("cursor", "pointer").on("mousedown", function(d){
+  // prevLink.scrollIntoView();
+  currentDisplayIndex--;
+
+  prevLink = document.getElementById(month[currentDisplayIndex-1])
+  nextLink = document.getElementById(month[currentDisplayIndex+1])
+
+  if(prevLink !== null){
+    contextNavBack.text("◂ " + month[currentDisplayIndex-1]);
+    contextNavForward.text(month[currentDisplayIndex+1] + " ▸")
+  }
+  else{
+    contextNavBack.text(" ");
+    contextNavForward.text(month[currentDisplayIndex+1] + " ▸")
+  }
+
+  domainMax = new Date(2018, currentDisplayIndex+1)
+  domainMax.setDate(domainMax.getDate()-1)
+  domainMin = new Date(2018, currentDisplayIndex)
+  // domainMax = new Date(d3.select(nextLink).datum().unix_time * 1000)
+  // domainMin = new Date(d3.select(nextLink).datum().unix_time * 1000)
+  // domainMin.setMonth(domainMin.getMonth() - 1);  
+
+  xScale2.domain([domainMin, domainMax])
+  contextChart.selectAll(".axis").call(xAxis2)
+  var brushMin = new Date(domainMax)
+  brushMin.setDate(brushMin.getDate()-1)
+
+  contextChart.selectAll("rect").attr("x", function(d) { return xScale2(d.time); })
+  contextBrush.call(brush.move, [brushMin, domainMax].map(xScale2))
+
+  contextChart.selectAll(".selection").call(contextTip)
+  });
+
+contextNavForward.text(" ").style("cursor", "pointer").on("mousedown", function(d){
+  // nextLink.scrollIntoView();
+  currentDisplayIndex++;
+
+  prevLink = document.getElementById(month[currentDisplayIndex-1])
+  nextLink = document.getElementById(month[currentDisplayIndex+1])
+
+  if(nextLink !== null){
+    contextNavBack.text("◂ " + month[currentDisplayIndex-1]);
+    contextNavForward.text(month[currentDisplayIndex+1] + " ▸")
+    // domainMax = new Date(d3.select(nextLink).datum().unix_time * 1000)
+    // domainMin = new Date(d3.select(nextLink).datum().unix_time * 1000)
+    // domainMin.setMonth(domainMin.getMonth() - 1);  
+
+  }
+  else{
+    contextNavBack.text("◂ " + month[currentDisplayIndex-1]);
+    contextNavForward.text(" ")
+    // domainMax = new Date(d3.select(prevLink).datum().unix_time * 1000)
+    // domainMin = new Date(d3.select(prevLink).datum().unix_time * 1000)
+    // domainMax.setMonth(domainMax.getMonth() + 2);  
+    // domainMin.setMonth(domainMin.getMonth() + 1);  
+
+  }
+
+  domainMax = new Date(2018, currentDisplayIndex+1)
+  domainMax.setDate(domainMax.getDate()-1)
+  domainMin = new Date(2018, currentDisplayIndex)
+
+
+  xScale2.domain([domainMin, domainMax])
+  contextChart.selectAll(".axis").call(xAxis2)
+  var brushMin = new Date(domainMax)
+  brushMin.setDate(brushMin.getDate()-1)
+
+
+  contextChart.selectAll("rect").attr("x", function(d) { return xScale2(d.time); })
+  contextBrush.call(brush.move, [brushMin, domainMax].map(xScale2))
+
+  contextChart.selectAll(".selection").call(contextTip)
+});
 
 
   var reporterTip = d3.tip()
     .attr("class", "tooltip")
     .offset([-20,-5])
     .html(function(d,i) {
-      return "<b>" + d.moodNotes + "</b>: " + d.trigger;
+    return "<b>Activity: </b>" + d.activity + "<br><b>Alone: </b>" + d.alone + "<br><b>Unique Interactions: </b>" + d.unique_interactions
     });
-
 
   reporterChart.selectAll(".moodCircle")
   .call(reporterTip)
@@ -614,12 +1101,40 @@ contextChart.append("path")
   })
 
 
-});
 
+  var contextTip = d3.tip()
+    .attr("class", "tooltip")
+    .offset([-20,-5])
+    .html(function(d,i) {
+    var brushSelection = d3.brushSelection(contextBrush.node())
 var formatTime = d3.timeFormat("%b %d %I:%M%p");
 
+  return "Viewing " + formatTime(xScale2.invert(brushSelection[0])) + " — <br>" + formatTime(xScale2.invert(brushSelection[1]))
+    });
+
+  contextChart.selectAll(".selection")
+  .call(contextTip)
+
+  .on("mousedown", function(d) {
+    contextTip.hide(d);
+  })
+
+  .on("mouseover", function(d) {
+    contextTip.show(d);
+  })
+
+  .on("mouseout", function(d) {
+    contextTip.hide(d);
+  })
+
+
+});
+
+
 function brushed() {
+  if (d3.event.sourceEvent && d3.event.sourceEvent.type === "zoom") return; // ignore brush-by-zoom
   var s = d3.event.selection || xScale2.range();
+  var formatTime = d3.timeFormat("%b %d %I:%M%p");
   var newDateRange = s.map(xScale2.invert, xScale2);
   for(var i = 0; i < newDateRange.length; i++) {
     newDateRange[i] = formatTime(newDateRange[i])
@@ -646,10 +1161,28 @@ function brushed() {
   expressionsChart.selectAll(".attentionLines").attr("x1", function(d){ return xScale(d.time);}).attr("x2", function(d) {return xScale(d.time);});
   expressionsChart.selectAll(".valenceLines").attr("x1", function(d){ return xScale(d.time);}).attr("x2", function(d) {return xScale(d.time);});
   emojiChart.selectAll(".emoji").attr("transform", function(d) {return "translate(" + (xScale(d.time)-7) + ")";});
+  tabCounterChart.select(".tabLine").attr("d", tabLine);
+  // tabCounterChart.select(".windowLine").attr("d", windowLine);
+ tabCounterChart.selectAll("rect").attr("x", function(d) { return xScale(dataset[d].timestamp); }).attr("width", (xScale(new Date("Sun Apr 29 2018 02:00:00 GMT-0500 (CDT)")) - xScale( new Date("Sun Apr 29 2018 01:00:00 GMT-0500 (CDT)"))));  tabCounterChart.selectAll(".tabCircle").attr("cx", function(d) {return xScale(dataset[d].timestamp)});
+  tabCounterChart.selectAll(".windowCircle").attr("cx", function(d) {return xScale(dataset[d].timestamp)});
   body.selectAll(".axis--x").call(xAxis);
 }
 
 
+
+let scrub = document.getElementById("context-container")
+
+window.addEventListener("scroll", function(){
+  var targetElement = document.getElementById("tabCounter-container");
+
+  if(window.scrollY > (targetElement.offsetTop)){
+    scrub.style.position = "inherit"
+  }
+  else if(window.scrollY <= (targetElement.offsetTop)){
+    scrub.style.position = "fixed"
+
+  }
+})
 
 </script>
 <script>
@@ -665,17 +1198,17 @@ var keyloggerChart = keyloggerSVG.append("g")
 var yScaleKeylogger = d3.scaleLinear()
   .range([height,0]);
   // .domain([0.45,1]);
-var yAxisKeylogger = d3.axisLeft(yScaleKeylogger).tickSize(-width).ticks(4).tickPadding(10).tickFormat(function(d) { return d*100 + "%"; });
+var yAxisKeylogger = d3.axisLeft(yScaleKeylogger).tickSize(-width).ticks(4).tickPadding(10).tickSizeOuter(0).tickFormat(function(d) { return d*100 + "%"; });
 
 
 
-  d3.json("log.json", ready);
+  d3.json("log_new.json", ready);
 
   function ready(err, data) {
       if (err) console.warn(err, "error loading data");
 
   data.forEach(function(d){
-    var dateTime = new Date(String(d.time));
+    var dateTime = new Date(d.unix_time * 1e3);
     d.time = dateTime;
   })
 
@@ -761,7 +1294,7 @@ var yAxisKeylogger = d3.axisLeft(yScaleKeylogger).tickSize(-width).ticks(4).tick
     .attr("class", "tooltip")
     .offset([-20,-5])
     .html(function(d,i) {
-    return "<b>" + d.tone_name + "</b>";
+    return "<b>" + d.tone_name + "</b>: " + (d.score * 100) + "%";
     });
 
   // xScale.domain(d3.extent(newResponses, function(d) {return d.time;}));
@@ -777,6 +1310,8 @@ var yAxisKeylogger = d3.axisLeft(yScaleKeylogger).tickSize(-width).ticks(4).tick
   keyloggerChart.append("g")
   .attr("class", "axis axis--y")
     .call(yAxisKeylogger);
+
+
 
 
     var joyCircles = keyloggerChart.selectAll(".joy-circle")
@@ -923,7 +1458,7 @@ var emojiChart = affectivaSVG.append("g")
 
 var yScaleExpressions = d3.scaleLinear()
   .range([expressionsHeight,0]);
-var yAxisExpressions = d3.axisLeft(yScaleExpressions).tickSize(-width).ticks(4).tickPadding(10).tickFormat(function(d) { return d + "%"; });
+var yAxisExpressions = d3.axisLeft(yScaleExpressions).tickSize(-width).ticks(4).tickPadding(10).tickSizeOuter(0).tickFormat(function(d) { return d + "%"; });
 
 
 var productivityArea = d3.area()
@@ -941,7 +1476,7 @@ d3.json("merged_file.json", function (err, affectiva) {
 productivity = rescuetime.rows;
 
 productivity.forEach(function(d){
-  var dateTime = new Date(String(d[0]));
+  var dateTime = new Date(String(d[0]) + "-04:00");
   d[0] = dateTime;
 })
 
@@ -983,7 +1518,29 @@ affectiva.forEach(function(d){
 })
 
 
+
+    // var attentionLine = d3.svg.line()
+    //   .x(function(d) {return xScale(d.time);})
+    //   .y(function(d){return yScale(d.attention);});
+    //
+
+
+// xScale.domain(d3.extent(newResponses, function(d) {return d.time;}));
   yScaleExpressions.domain([-100,100]);
+  // xScale2.domain(xScale.domain());
+  // yScale2.domain(yScale.domain());
+
+
+  // var productivityline = d3.line()
+  //   .defined(function(d){return d[4]!=null;})
+  //   .x(function(d) {return xScale(d[0]);})
+  //   .y(function(d){return yScaleExpressions(d[4]);});
+
+  // var blinkLine = d3.svg.line()
+  //   .defined(function(d){return d.blinks!=null;})
+  //   .x(function(d) {return xScale(d.time);})
+  //   .y(function(d){return yScale(d.blinks);});
+
 
   var blinksTip = d3.tip()
     .attr("class", "tooltip")
@@ -1038,11 +1595,10 @@ affectiva.forEach(function(d){
         .attr("fill-opacity", 0.3);
 
 
-
   blinksChart.append("line")
-    .style("stroke", "#e0e0e0")
-    .style("stroke-dasharray", ("5,5"))
-    .attr("x1", -30)
+    .style("stroke", "silver")
+    .style("stroke-width", 1)
+    .attr("x1", 60)
     .attr("y1", 60)
     .attr("x2", width)
     .attr("y2", 60);
@@ -1100,13 +1656,12 @@ affectiva.forEach(function(d){
 
 
 
-    var productivity = expressionsChart.append("path")
-      .datum(newProductivity)
-      .attr("d", productivityArea)
-      .attr("fill", "gold")
-      .attr("opacity", 0.35)
-      .attr("class", "productivityArea");
-
+ expressionsChart.append("path")
+    .datum(newProductivity)
+    .attr("d", productivityArea)
+    .attr("fill", "gold")
+    .attr("opacity", 0.35)
+    .attr("class", "productivityArea");
 
 
 
@@ -1168,10 +1723,11 @@ affectiva.forEach(function(d){
   })
 
 
+
   emojiChart.append("line")
-    .style("stroke", "#e0e0e0")
-    .style("stroke-dasharray", ("5,5"))
-    .attr("x1", -30)
+    .style("stroke", "silver")
+    .style("stroke-width", 1)
+    .attr("x1", 70)
     .attr("y1", 110)
     .attr("x2", width)
     .attr("y2", 110);
@@ -1221,6 +1777,828 @@ affectiva.forEach(function(d){
 
 
 })
+});
+
+</script>
+
+
+<script>
+
+var dataset; 
+// var tabCounterChartHeight = 800;
+// var tabCounterHeight = 500;
+// var faviconHeight = 300;
+
+var tabCounterSVG = d3.select("#tabCounter")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom);
+var tabCounterChart = tabCounterSVG.append("g")
+      .attr("class", "tabCounterG")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+      // .attr("height", tabCounterHeight);
+// var faviconChart = tabCounterSVG.append("g")
+//       .attr("class", "faviconG")
+//       .attr("transform", "translate(" + margin.left + "," + (margin.top + faviconHeight) + ")")
+//       .attr("height", faviconHeight);
+
+
+var yScaleTabCounter = d3.scaleLinear()
+  .range([height,0]);
+  // .domain([0.45,1]);
+var yAxisTabCounter = d3.axisLeft(yScaleTabCounter).tickSize(-width).ticks(4).tickPadding(10).tickSizeOuter(0);
+
+
+var tabLine = d3.line()
+// .defined(function(d) { return (typeof dataset[d].current_tabCount !== 'string'); })
+.defined(function(d){
+    // return dataset[d].current_tabCount!==null ? d : console.log("null")
+  return (dataset[d].current_tabCount!==null) && (dataset[d].tabs_activated > 0 || dataset[d].tabs_created > 0)
+})
+  .x(function(d) {return xScale(dataset[d].timestamp);})
+  .y(function(d){return yScaleTabCounter(dataset[d].current_tabCount);});
+
+
+
+
+d3.json("chromeactivity.json", ready);
+
+function ready(err, data) {
+    if (err) console.warn(err, "error loading data");
+
+
+dataset = data;
+
+// console.log(dataset[1524982083090])
+var keyLookup = [];
+
+for(var key in dataset){
+  // console.log(dataset[key])
+  var dateTime = new Date(dataset[key].timestamp)
+  dataset[key].timestamp = dateTime;
+  keyLookup.push(key);
+
+  if(!dataset[key].favicons){
+    dataset[key]["favicons"] = [];
+  }
+}
+
+
+for(var key in dataset){
+
+  var currentIndex = keyLookup.indexOf(key);
+
+  if(currentIndex < keyLookup.length - 1){
+    var currentTime = dataset[key].timestamp;
+    var nextTime = dataset[keyLookup[currentIndex+1]].timestamp;
+
+
+    if (currentTime < (nextTime - 14000000)) {
+      var nullTime = nextTime - 14000000
+
+      var nullItems = {};
+
+      nullItems["timestamp"] = new Date(nullTime);
+      nullItems["current_windowCount"] = null;
+      nullItems["current_tabCount"] = null;
+      nullItems["favicons"] = [];
+      nullItems["tabs_activated"] = null;
+      nullItems["tabs_created"] = null;
+      nullItems["windows_created"] = null;
+
+      dataset[nullTime] = nullItems;
+    }
+
+    // else if (currentTime > (nextTime - 1800000)) {
+    //   var currentTimeMs = currentTime.getTime();
+    //   var nextTimeMs = nextTime.getTime();
+    //   dataset[currentTimeMs].tabs_activated += dataset[nextTimeMs].tabs_activated;
+    //   dataset[currentTimeMs].tabs_created += dataset[nextTimeMs].tabs_created;
+    //   dataset[currentTimeMs].windows_created += dataset[nextTimeMs].windows_created;
+    //   delete dataset[nextTimeMs];
+    // }
+  }
+}
+
+
+keyLookup = [];
+
+for(var key in dataset){
+    keyLookup.push(key);
+}
+
+keyLookup.sort(function(a,b){
+  return a - b;
+})
+
+
+var yMax = d3.extent(keyLookup, function(d) {return dataset[d].tabs_activated;})[1];
+yScaleTabCounter.domain([0,yMax]);
+// xScale2.domain(xScale.domain());
+// yScale2.domain(yScale.domain());
+
+
+  var tabTip = d3.tip()
+    .attr("class", "tooltip")
+    .offset([-22,-5])
+    .direction("n")
+    .html(function(d) {
+      var imgString = "";
+      for(var i = 0; i < dataset[d].favicons.length; i++){
+        var jnURL = "http://localhost:8888/static/base/images/"
+        if(dataset[d].favicons[i].includes(jnURL)){
+        imgString += "<img src="+dataset[d].favicons[i].slice(jnURL.length)+" width='13px' height='13px'>"
+        }
+        else{
+        imgString += "<img src='"+dataset[d].favicons[i]+"' width='13px' height='13px'>"
+        }
+      }
+      return "<b>Tabs Activated:</b> "+dataset[d].tabs_activated+"<br><br>" + imgString;
+    });
+
+  var tabCreatedTip = d3.tip()
+    .attr("class", "tooltip")
+    .offset([-22,-5])
+    .direction("n")
+    .html(function(d) {
+      return "<b>Tabs Created:</b> "+dataset[d].tabs_created;
+    });
+
+  var tabCountTip = d3.tip()
+    .attr("class", "tooltip")
+    .offset([-22,-5])
+    .direction("n")
+    .html(function(d) {
+      return "<b>Tabs Left Open:</b> "+dataset[d].current_tabCount;
+    });
+
+  var windowCountTip = d3.tip()
+    .attr("class", "tooltip")
+    .offset([-22,-5])
+    .direction("n")
+    .html(function(d) {
+      return "<b>Windows Left Open:</b> "+dataset[d].current_windowCount;
+    });
+
+
+
+  tabCounterChart.append("g")
+    .attr("class", "axis axis--x")
+    .attr("transform","translate(0, "+(height)+")")
+    .call(xAxis);
+
+  tabCounterChart.append("g")
+  .attr("class", "axis axis--y")
+    .call(yAxisTabCounter);
+
+
+var pixelInterval = xScale(new Date("Sun Apr 29 2018 02:00:00 GMT-0500 (CDT)")) - xScale( new Date("Sun Apr 29 2018 01:00:00 GMT-0500 (CDT)"));
+
+
+ tabCounterChart.selectAll(".activated-bar")
+      .data(keyLookup)
+    .enter().append("rect")
+      .attr("class", "activated-bar")
+      .style("fill", "gold")
+      .style("opacity", 0.5)
+      .attr("x", function(d) { return xScale(dataset[d].timestamp); })
+      .attr("width", pixelInterval)
+      .attr("y", function(d) { return yScaleTabCounter(dataset[d].tabs_activated); })
+      .attr("height", function(d) { return height - yScaleTabCounter(dataset[d].tabs_activated); });
+
+tabCounterChart.selectAll(".created-bar")
+    .data(keyLookup)
+  .enter().append("rect")
+    .attr("class", "created-bar")
+    .style("fill", "cyan")
+    .style("opacity", 0.5)
+    .attr("x", function(d) { return xScale(dataset[d].timestamp); })
+    .attr("width", pixelInterval)
+    .attr("y", function(d) { return yScaleTabCounter(dataset[d].tabs_created); })
+    .attr("height", function(d) { return height - yScaleTabCounter(dataset[d].tabs_created); });
+
+tabCounterChart.append("path")
+  .datum(keyLookup)
+  .attr("d", tabLine)
+  .attr("stroke", "magenta")
+  .attr("stroke-width", 2)
+  .attr("fill", "none")
+  .attr("class", "tabLine")
+  .attr("opacity", 0.6);
+
+// tabCounterChart.append("path")
+//   .datum(keyLookup)
+//   .attr("d", windowLine)
+//   .attr("stroke", "blue")
+//   .attr("stroke-width", 2)
+//   .attr("fill", "none")
+//   .attr("class", "windowLine")
+//   .attr("opacity", 0.6);
+
+tabCounterChart.selectAll(".tabCircle")
+  .data(keyLookup)
+  .enter()
+  .append("circle")
+  .attr("class","tabCircle")
+  .attr("cx", function(d) {return xScale(dataset[d].timestamp)})
+  .attr("r", function(d) {return (dataset[d].current_tabCount == null || dataset[d].tabs_activated == 0) ? 0 : 2; })
+  .attr("cy", function(d) { return yScaleTabCounter(dataset[d].current_tabCount);})
+  .attr("opacity", 0.7)
+  .attr("fill", "magenta");
+
+
+// tabCounterChart.selectAll(".windowCircle")
+//   .data(keyLookup)
+//   .enter()
+//   .append("circle")
+//   .attr("class","windowCircle")
+//   .attr("cx", function(d) {return xScale(dataset[d].timestamp)})
+//   .attr("r", function(d) {return dataset[d].current_windowCount == null ? 0 : 3; })
+//   .attr("cy", function(d) { return yScaleTabCounter(dataset[d].current_windowCount);})
+//   .attr("opacity", 0.65)
+//   .attr("fill", "blue");
+
+// faviconChart.selectAll(".chromeIcons")
+//   .data(keyLookup)
+//   .enter()
+//   .append("g")
+//   .attr("transform", function(d){return "translate(" + xScale(dataset[d].timestamp) +")"})
+//   .selectAll(".icons")
+//   .data(function(d) {return dataset[d].favicons;})
+//   .enter()
+//   .append("svg:image")
+//   // .attr("class", "logo")
+//   // .attr("cx", function(d){return xScale(d.time)})
+//   // .attr("cy", height)
+//   .attr("xlink:href", function(d,i){return d;})
+//   .attr("transform", function(d,j){return "translate(0," + yScaleTabCounter((j+2)*2) + ")";})
+//   .attr("height", 10)
+//   .attr("width", 10);
+
+
+tabCounterChart.selectAll(".activated-bar")
+.call(tabTip)
+
+.on("mouseover", function(d) {
+  tabTip.show(d);
+})
+
+.on("mouseout", function(d) {
+  tabTip.hide(d);
+})
+
+
+tabCounterChart.selectAll(".created-bar")
+.call(tabCreatedTip)
+
+.on("mouseover", function(d) {
+  tabCreatedTip.show(d);
+})
+
+.on("mouseout", function(d) {
+  tabCreatedTip.hide(d);
+})
+
+
+tabCounterChart.selectAll(".tabCircle")
+.call(tabCountTip)
+
+.on("mouseover", function(d) {
+  tabCountTip.show(d);
+})
+
+.on("mouseout", function(d) {
+  tabCountTip.hide(d);
+})
+
+
+}
+
+
+</script>
+
+
+<script>
+
+// correlation matrix adapted from https://bl.ocks.org/emeeks/671c0e7adfb1ce7060b8
+// linear regression adapted from https://bl.ocks.org/HarryStevens/be559bed98d662f69e68fc8a7e0ad097
+
+
+d3.tsv("mergedDF.tsv", function(err, data) {
+  d3.tsv("correlationmatrix.tsv", function(err, correlationData) {
+      if (err) console.warn(err, "error loading data");
+
+var correlationSVG = d3.select("#correlations")
+      .attr("width", width + margin.left + margin.right)
+
+  attributes = ["All", "mood", "unique_interactions", "alone", "morale", "stress", "fatigue", "compulsions", "with_friends_activity", "schoolwork_activity", "tv_activity", "working_out_activity", "friend_home_location", "home_location","school_location", "Sadness_score", "Analytical_score", "Joy_score", "Fear_score", "Tentative_score", "Anger_score", "Confident_score", "word_count", "uniqueword_ratio", "backspace_count", "avg_dwelltime", "avg_flighttime", "avg_attention", "avg_engagement", "avg_valence", "blinks", "productivity_score", "current_tabCount", "tabs_activated", "tabs_created", "windows_created", "phone_unlocks", "phone_use_secs", "walking_duration", "avg_walking_speed", "time_of_day"]
+
+
+  attribute_descriptions = {All: "All variables", mood: "Mood Reporter data on scale of 0-5", unique_interactions: "Mood Reporter data on number of social interactions", alone: "Mood Reporter data (T/F)", morale: "Mood Reporter data on scale of 0-5", stress: "Mood Reporter data on scale of 0-5", fatigue: "Mood Reporter data on scale of 0-5", compulsions: "Mood Reporter data on compulsions (T/F)", tv_activity: "Mood Reporter data on time spent watching TV (T/F)", working_out_activity: "Mood Reporter data on time spend working out (T/F)", schoolwork_activity: "Mood Reporter data on time spent on schoolwork (T/F)", with_friends_activity: "Mood Reporter data on time with friends (T/F)", home_location: "Mood Reporter data on time spent at home (T/F)", school_location: "Mood Reporter data on time spent at school (T/F)", friend_home_location: "Mood Reported data on time spent at a friend's home (T/F)", productivity_score: "Productivity_score, calculated by the RescueTime App on scale of 0-100%", blinks: "Count per minute, calculated with Facial Analysis data", Sadness_score: "Sentiment analysis score from Keylogger data", Analytical_score: "Sentiment analysis score from Keylogger data", Joy_score: "Sentiment analysis score from Keylogger data", Tentative_score: "Sentiment analysis score from Keylogger data", Confident_score: "Sentiment analysis score from Keylogger data", Fear_score: "Sentiment analysis score from Keylogger data", Anger_score: "Sentiment analysis score from Keylogger data", word_count: "Keylogger data on number of words typed per hour", uniqueword_ratio: "Keylogger data on percentage of unique words typed per hour", backspace_count: "Keylogger data on number of backspaces typed per hour", avg_dwelltime: "Keylogger data on hourly average keypress duration", avg_flighttime: "Keylogger data on hourly average duration between keystrokes", avg_attention: "Average attention score calculated from one minute of Facial Analysis data", avg_engagement: "Average engagement score calculated from one minute of Facial Analysis data", avg_valence: "Average valence score calculated from one minute of Facial Analysis data", current_tabCount: "Browser Activity Tracker count of tabs left open at the end of each hour", tabs_activated: "Browser Activity Tracker count of tabs activated over an hour", tabs_created: "Browser Activity Tracker count of tabs created over an hour", windows_created: "Browser Activity Tracker count of windows created over an hour", phone_unlocks: "QualityTime App data on numbers of phone unlocks per hour", phone_use_secs: "QualityTime App data on time spent on phone per hour (in seconds)", walking_duration: "S Health App data on length of time spent walking per hour", avg_walking_speed: "S Health App data on average walking speed per hour", time_of_day: "Hour of day; recalculated 24-hour clock format to fit my sleep schedule and the linear approach of correlation/linear regression, ie 0-24 to 6-30"}
+    
+
+  d3.select("#selection1").selectAll("options")
+    .data(attributes)
+    .enter().append("option")
+    .text(function(d){return d})
+
+  d3.select("#selection2").selectAll("options")
+    .data(attributes)
+    .enter().append("option")
+    .text(function(d){return d})
+
+  attributeMatrix = [];
+
+  attributes.forEach(function(a,x) {
+    attributes.forEach(function(b,y){
+      if(y == attributes.length || x == attributes.length){
+        return
+      }
+      else{
+      attributeMatrix.push({a: a, b:b, x:x, y:y})
+    }
+    })
+  })
+
+
+  data.forEach(function (d) {
+    attributes.forEach(function (att) {
+      if(d[att] == "False"){
+        d[att] = 0;
+      }
+      else if (d[att] == "True") {
+        d[att] = 1;
+      }
+      else {
+        d[att] = parseFloat(d[att])
+      }
+    })
+  })
+
+  //create scales dynamically for each attribute's extent
+
+  scale = {};
+  attributes.forEach(function (att) {
+    scale[att] = d3.scaleLinear();
+    attExtent = d3.extent(data, function (d) {return d[att]});
+    scale[att].domain(attExtent);
+  })
+
+
+var selection1 = document.querySelector('#selection1');
+selection1.addEventListener('input', getInput)
+
+var selection2 = document.querySelector('#selection2');
+selection2.addEventListener('input', getInput)
+
+
+
+function getInput() {
+
+  var input1 = document.getElementById("selection1").value
+  var input2 = document.getElementById("selection2").value
+
+  var newMatrix = [];
+  var attributeSet = new Set()
+
+  if(input1 == "Select an X-Axis Metric:" || input2 == "Select an Y-Axis Metric:"){
+    return
+  }
+  if(input1 == "All" && input2 =="All"){
+    attributeSet = new Set(attributes);
+    correlationData.forEach(function(d){
+      if(attributeSet.has(d.index)){
+        attributeSet.forEach(function(att){
+          if(att != "All"){
+          newMatrix.push({a: d.index, b:att, corr: d[att]})
+          }
+        })
+
+      }
+    })
+
+  }
+  else if(input1 == "All") {
+    attributeSet.add(input2)
+    attributeMatrix.forEach(function(d){
+      if(d.b == input2) { 
+        if(d.a != "All" && d.a != d.b) {
+          newMatrix.push(d)
+          attributeSet.add(d.a)
+        }        
+
+      }
+    })
+  }
+  else if (input2 == "All"){
+    attributeSet.add(input1)
+    attributeMatrix.forEach(function(d){
+      if(d.a == input1) {
+        if(d.b != "All" && d.b != d.a) {
+          newMatrix.push(d)
+          attributeSet.add(d.b)
+        }        
+
+      }
+    })
+  }
+  else {
+    newMatrix.push({a: input1, b:input2})
+    attributeSet.add(input1)
+    attributeSet.add(input2)
+
+  }
+
+
+  // var variable_description_container = document.getElementById("variable-description-container")
+  
+  // variable_description_container.style.display = "block";
+  
+
+  var tempInstructions = document.querySelector("#temp-instructions")
+  if(tempInstructions != null){
+    tempInstructions.parentNode.removeChild(tempInstructions)
+  }
+
+  var variable_description = document.querySelector("#variable-description")
+  variable_description.innerHTML = null
+
+
+attributeSet.forEach(function(d){
+  // var newP = document.createTextNode("<b>"+ d + ": </b>" + attribute_descriptions[d])
+  var newP = document.createElement("p")
+
+  var newPair = "<b>"+ d + ": </b>" + attribute_descriptions[d]
+
+  newP.innerHTML = newPair
+
+  variable_description.appendChild(newP)
+
+})
+
+attributeSet.clear()
+
+
+if(newMatrix.length > 300) {
+  var containerWidth = width/41.25;
+  var containerHeight = width/41.25;
+  var chartHeight = width/44.25;
+  var chartWidth = width/44.25;
+  var rowLength = attributes.length - 1;
+  margin.left += attributes.length - 1;
+  margin.top += attributes.length - 1;
+}
+else if(newMatrix.length < 300 && newMatrix.length > 2){
+  var containerWidth = width/6;
+  var containerHeight = width/6;
+  var chartHeight = width/8;
+  var chartWidth = width/8;
+  var rowLength = 6;
+  var tickNumX = 4;
+  var tickNumY = 4;
+  var tickSize = 2;
+  var tickPadding = 2;
+  var axisClass = "smallAxis";
+  var radius = 2;
+  var labelClass = "smallAxisLabel"
+  margin.left = 50;
+  margin.top = 50;
+}
+else if (newMatrix.length < 2){
+  var containerWidth = width/2;
+  var containerHeight = width/2.5;
+  var chartHeight = 400;
+  var chartWidth = 900;
+  var rowLength = 1;
+  var tickNumX = 12;
+  var tickNumY = 6;
+  var tickSize = -chartWidth;
+  var tickPadding = 10;
+  var axisClass = "axis";
+  var radius = 4;
+  var labelClass = "axisLabel"
+  margin.left = 75;
+  margin.top = 50;
+}
+
+// d3.select("svg")
+correlationSVG
+.html("")
+.attr("height", (Math.ceil((newMatrix.length+2) / rowLength)  * containerHeight) + margin.top + margin.bottom)
+// .attr("width", width + margin.left + margin.right)
+
+
+
+var rows = 0;
+var j = -1;
+
+correlationSVG  
+  .selectAll("g")
+  .data(newMatrix)
+  .enter()
+  .append("g")
+  .attr("transform", function (d,i) {
+      if(i > 0 && i%rowLength == 0){
+        rows += 1;
+        j=0;
+        return "translate(" + ((j * containerWidth) + margin.left) + "," + ((rows * containerHeight) + margin.top) + ")" 
+      }
+      else{
+        j +=1;
+        return "translate(" + ((j * containerWidth) + margin.left) + "," + ((rows * containerHeight) + margin.top) + ")" 
+      }
+  });
+
+
+correlationSVG.selectAll("g").each(function(pair,i){
+
+
+  if(pair.a == pair.b && newMatrix.length < 2){
+    return
+  }
+  else if(newMatrix.length < 300) {
+
+    scale[pair.a].range([0,chartWidth]);
+    scale[pair.b].range([chartHeight,0]);
+
+    d3.select(this).append("rect").style("fill", "none").style("stroke", "none").style("stroke-width", 0)
+    .attr("height", chartHeight)
+    .attr("width", chartWidth)
+
+      var xAxisCorr = d3.axisBottom()
+          .scale(scale[pair.a])
+          .tickSize(3)
+          .ticks(tickNumX)
+          .tickPadding(tickPadding);
+
+      var yAxisCorr = d3.axisLeft()
+          .scale(scale[pair.b])
+          .tickSize(tickSize)
+          .ticks(tickNumY)
+          .tickPadding(tickPadding);
+
+      d3.select(this).append("g")
+        .attr("class", axisClass)
+        .attr("transform", "translate(0," + chartHeight + ")")
+        .call(xAxisCorr)
+
+      d3.select(this).append("g")
+          .attr("class", axisClass)
+          .call(yAxisCorr);
+
+      if(newMatrix.length > 2){
+          d3.select(this).append("text")
+          .attr("class", labelClass)
+          .attr("x", (chartWidth/2) + 5)
+          .style("text-anchor", "middle")
+          .attr("y", 7)
+          .attr("fill", "black")
+
+          .text(function(d){
+            var string = pair.a + pair.b;
+
+            if(string.length <= 20){
+              return pair.a.toUpperCase() + " - " + pair.b.toUpperCase();
+            }
+            else if(string.length > 20){
+              return pair.a.toUpperCase() + " -";
+            }
+          })
+          d3.select(this).append("text")
+          .attr("class",labelClass)
+          .attr("x", (chartWidth/2) + 5)
+          .style("text-anchor", "middle")
+          .attr("y", 20)
+          .attr("fill", "black")
+          .text(function(d){
+            var string = pair.a + pair.b;
+            if(string.length > 20){
+              return pair.b.toUpperCase()
+            }
+          });
+        }
+      else if (newMatrix.length < 2){
+        d3.select(this).append("text")
+          .attr("class", labelClass)
+          .attr("x", (chartWidth/2))
+          .attr("y", chartHeight + 60)
+          .attr("fill", "black")
+          .text(function(d){
+            return pair.a
+          })
+       d3.select(this).append("text")
+          .attr("class", labelClass)
+          .attr("transform", "rotate(-90)")
+          .attr("x", 0 - (chartHeight/2))
+          .attr("y", -50)
+          .style("text-anchor", "middle")
+          .attr("fill", "black")
+          .text(function(d){
+            return pair.b
+          })
+      }
+    }
+    else if (newMatrix.length >300) {
+      document.body.style.cursor = "default";
+
+      scale[pair.a].range([4,chartWidth]);
+      scale[pair.b].range([chartHeight,4]);
+
+      var corr_color = d3.scaleLinear()
+        .domain([-1,0,1])
+        .range(["blue", "#fcf9ef", "magenta"])
+
+      d3.select(this).append("rect").style("fill", corr_color(pair.corr)).style("stroke", "#fcf9ef").style("stroke-width", 2)
+      .attr("height", containerHeight)
+      .attr("width", containerWidth)
+
+
+      if (i == 0) {
+        d3.select(this).append("text")
+        .attr("class", "matrix-label")
+        .attr("x", 10)
+        .attr("y", 5)
+        .attr("fill", "black")
+        .text(pair.b.toUpperCase())  
+        d3.select(this).append("text")
+        .attr("class", "matrix-label")
+        .attr("x", -10)
+        .attr("y", 5)
+        .attr("fill", "black")
+        .style("text-anchor", "end")
+        .text(pair.a.toUpperCase())
+      }
+      else if(i < rowLength){
+        d3.select(this).append("text")
+        .attr("class", "matrix-label")
+        .attr("x", 10)
+        .attr("y", 5)
+        .attr("fill", "black")
+        .text(pair.b.toUpperCase())  
+      }
+      else if(i%rowLength == 0){
+        d3.select(this).append("text")
+        .attr("class", "matrix-label")
+        .attr("x", -10)
+        .attr("y", 5)
+        .attr("fill", "black")
+        .style("text-anchor", "end")
+        .text(pair.a.toUpperCase())
+      }
+
+  var corrTip = d3.tip()
+    .attr("class", "tooltip")
+    .offset([-20,-5])
+    .html(function(d,i) {
+    return "<b>" + d.a + ",<br>" + d.b + ":</b><br>" + d.corr;
+    });
+
+   correlationSVG.selectAll("rect")
+    .call(corrTip)
+
+    .on("mouseover", function(d) {
+      corrTip.show(d);
+    })
+
+    .on("mouseout", function(d) {
+      corrTip.hide(d);
+    })
+    return
+  }
+
+
+
+    var lg = calcLinear(data, pair.a, pair.b, 
+          d3.min(data, function(d){ return d[pair.a] }), 
+          d3.min(data, function(d){ return d[pair.b] }), 
+          d3.max(data, function(d){ return d[pair.a] }));
+
+    var circleclass;
+
+    d3.select(this).append("line")
+          .attr("class", "regression")
+          .attr("x1", scale[pair.a](lg.ptA.x))
+          .attr("y1", scale[pair.b](lg.ptA.y))
+          .attr("x2", scale[pair.a](lg.ptB.x))
+          .attr("y2", scale[pair.b](lg.ptB.y))
+          .attr("stroke", function(d){
+            if (pair.b == pair.a){
+              circleclass = "silver";
+              return "silver";
+            }
+            else if((scale[pair.b](lg.ptA.y)) >(scale[pair.b](lg.ptB.y))){
+              circleclass = "magenta";
+              return "magenta";
+            }
+            else {
+              circleclass = "blue";
+              return "blue";
+            }
+          });
+
+        // scatterplot points
+      d3.select(this).selectAll("circle")
+      .data(data)
+      .enter()
+      .append("circle")
+      .attr("r", radius)
+      .style("fill", circleclass)
+      // .style("fill", colors(i))
+      .style("opacity", 0.11)
+      .attr("cx", function (d) {
+        return scale[pair.a](d[pair.a])
+      })
+      .attr("cy", function (d) {return scale[pair.b](d[pair.b])});
+
+    })
+
+
+   // Calculate a linear regression from the data
+
+    // Takes 5 parameters:
+    // (1) Your data
+    // (2) The column of data plotted on your x-axis
+    // (3) The column of data plotted on your y-axis
+    // (4) The minimum value of your x-axis
+    // (5) The minimum value of your y-axis
+
+    // Returns an object with two points, where each point is an object with an x and y coordinate
+
+    function calcLinear(data, x, y, minX, minY, maxX){
+      /////////
+      //SLOPE//
+      /////////
+
+      // Let n = the number of data points
+      var n = data.length;
+
+      // Get just the points
+      var pts = [];
+      data.forEach(function(d,i){
+        // console.log("+d[x]", +d[x])
+        var obj = {};
+        obj.x = +d[x];
+        obj.y = +d[y];
+        obj.mult = obj.x*obj.y;
+        pts.push(obj);
+      });
+
+      // Let a equal n times the summation of all x-values multiplied by their corresponding y-values
+      // Let b equal the sum of all x-values times the sum of all y-values
+      // Let c equal n times the sum of all squared x-values
+      // Let d equal the squared sum of all x-values
+      var sum = 0;
+      var xSum = 0;
+      var ySum = 0;
+      var sumSq = 0;
+      pts.forEach(function(pt){
+        // console.log(pt)
+        sum = sum + pt.mult;
+        xSum = xSum + pt.x;
+        ySum = ySum + pt.y;
+        sumSq = sumSq + (pt.x * pt.x);
+      });
+
+      var a = sum * n;
+      var b = xSum * ySum;
+      var c = sumSq * n;
+      var d = xSum * xSum;
+
+
+      // Plug the values that you calculated for a, b, c, and d into the following equation to calculate the slope
+      // slope = m = (a - b) / (c - d)
+      var m = (a - b) / (c - d);
+      /////////////
+      //INTERCEPT//
+      /////////////
+
+      // Let e equal the sum of all y-values
+      var e = ySum;
+      // Let f equal the slope times the sum of all x-values
+      var f = m * xSum;
+      // Plug the values you have calculated for e and f into the following equation for the y-intercept
+      // y-intercept = b = (e - f) / n
+      var b = (e - f) / n;
+
+      // return an object of two points
+      // each point is an object with an x and y coordinate
+      return {
+        ptA : {
+          x:minX,
+          y: m * minX + b
+          // x: minX,
+          // y: m * minX + b
+        },
+        ptB : {
+          x: maxX,
+          y: m * maxX + b
+          // y: minY,
+          // x: (minY - b) / m
+        }
+      }
+    }
+
+}
+  })
 });
 
 </script>

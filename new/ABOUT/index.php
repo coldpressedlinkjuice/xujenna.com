@@ -11,9 +11,9 @@
 <a href="https://github.com/xujenna" itemprop="sameAs" target="new">@ github</a><br>
 <a href="https://bl.ocks.org/xujenna" itemprop="sameAs" target="new">@ bl.ocks</a><br>
 <a href="http://www.linkedin.com/pub/jenna-xu/31/782/149" itemprop="sameAs" target="new">@ LinkedIn</a><br>
-<a href="http://53964.vsco.co/" itemprop="sameAs" target="new">@ VSCO Cam</a><br>
-<a href="http://www.pinterest.com/xujenna/" itemprop="sameAs" target="new">@ Pinterest</a><Br>
-</p>
+<a href="https://vsco.co/xujenna/images/1" itemprop="sameAs" target="new">@ VSCO Cam</a><br>
+<!-- <a href="http://www.pinterest.com/xujenna/" itemprop="sameAs" target="new">@ Pinterest</a><Br>
+ --></p>
 </span>
 
 <p><br>Freelance <span itemprop="jobTitle">graphic designer</span> based in <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"><span itemprop="addressLocality">NYC</span></span>;
