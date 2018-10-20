@@ -30,7 +30,7 @@ $(document).ready(function() {
 </script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>+/- the portfolio of jenna xu</title>
+<title>the portfolio of jenna xu</title>
 
 </head>
 <body>
@@ -47,7 +47,7 @@ $(document).ready(function() {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/ABOUT/index.php"><i>+/- jenna xu</i></a>
+      <a class="navbar-brand" href="/ABOUT/index.php"><b>Xu, Jenna</b></a>
     </div>
        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 <!--       <ul class="nav navbar-nav">
@@ -59,7 +59,7 @@ $(document).ready(function() {
 	<ul style="list-style:none;" class="collapse" id="ITP-nav">
     <li><a href="http://xujenna.com/speakmemory/" target="new">Speak, (Random Access) Memory</a></li>
     	<li><a href="/ITP/CBTapp/index.php" onclick="do_click();">A Cognitive Behavioral Therapy App</a></li>
-		<li><a href="http://xujenna.com/ig_analyzer/" target="new">Instagrammed Markers of Depression</a></li>
+		<li><a href="http://xujenna.com/ITP/data_mining_myself/">Data Mining Myself</a></li>
 <!-- 		<li><a href="http://bl.ocks.org/xujenna/raw/9e391d656fc95eb1dea4bc330cd34cc7/" target="new">Mindwandering Study #2</a></li>
  -->	<li><a href="http://xujenna.com/ITP/PupilTracker/index.php">A Mindwandering Study</a></li>
 		<li><a href="/ITP/GoodVibes/index.php" onclick="do_click();">Good Vibrations</a></li>

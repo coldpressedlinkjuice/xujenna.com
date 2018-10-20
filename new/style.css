@@ -137,8 +137,7 @@ h4 { font-size: 12px; font-family: monospace;}
 #once { clear: left; }
 
 hr {
-	width: 800px;
-	height: 3.5px;
+	height: 1px;
 	background-color: #000;
 }
 
