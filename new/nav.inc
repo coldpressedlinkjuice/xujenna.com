@@ -57,11 +57,13 @@ $(document).ready(function() {
 	<ul class="accordion-group">
 	<li style="list-style:none;"><a href="#ITP-nav" data-toggle="collapse" data-parent="#accordion2"><div id="section-title">@ NYU ITP</div></a>
 	<ul style="list-style:none;" class="collapse" id="ITP-nav">
-    <li><a href="http://xujenna.com/speakmemory/" target="new">Speak, (Random Access) Memory</a></li>
+	<li><a href="https://xujenna.com/NYQuotient/" target="new">How New York are you?</a></li>
+	<li><a href="/ITP/LifeSupport/index.php" onclick="do_click();">Life Support</a></li>
+    <li><a href="https://xujenna.com/speakmemory/" target="new">Speak, (Random Access) Memory</a></li>
     	<li><a href="/ITP/CBTapp/index.php" onclick="do_click();">A Cognitive Behavioral Therapy App</a></li>
-		<li><a href="http://xujenna.com/ITP/data_mining_myself/">Data Mining Myself</a></li>
+		<li><a href="/ITP/data_mining_myself/">Data Mining Myself</a></li>
 <!-- 		<li><a href="http://bl.ocks.org/xujenna/raw/9e391d656fc95eb1dea4bc330cd34cc7/" target="new">Mindwandering Study #2</a></li>
- -->	<li><a href="http://xujenna.com/ITP/PupilTracker/index.php">A Mindwandering Study</a></li>
+ -->	<li><a href="=/ITP/PupilTracker/index.php">A Mindwandering Study</a></li>
 		<li><a href="/ITP/GoodVibes/index.php" onclick="do_click();">Good Vibrations</a></li>
 		<li><a href="/ITP/Jukebox/index.php" onclick="do_click();">Photo Jukebox</a></li>
 	</ul>
@@ -70,8 +72,11 @@ $(document).ready(function() {
 	<ul class="accordion-group">
 	<li style="list-style:none;"><a href="#dataviz-nav" data-toggle="collapse" data-parent="#accordion2"><div id="section-title">DATA VISUALIZATION</div></a>
 	<ul style="list-style:none;" class="collapse" id="dataviz-nav">
+    	<li><a href="https://xujenna.com/speakmemory/" target="new">Speak, (Random Access) Memory</a></li>
 		<li><a href="https://xujenna.github.io/sometimesbeautiful/" target="new">CPH Air Pollution Data: July 28, 2016</a></li>
-		<li><a href="http://bl.ocks.org/xujenna/raw/117f1f06a14f4d5cd473a2ed408c3f93/" target="new">Authentication is Required.</a></li>
+		<!-- 
+			<li><a href="http://bl.ocks.org/xujenna/raw/117f1f06a14f4d5cd473a2ed408c3f93/" target="new">Authentication is Required.</a></li>
+		-->
 		<li><a href="http://bl.ocks.org/xujenna/raw/32b4b11f1b25a5cf3493fd9308e1e735/" target="new">Deaths by Firearms, 2014</a></li>
 		<li><a href="http://bl.ocks.org/xujenna/raw/25db2af0bf59950d7390ceeba187df42/" target="new">U.S. Mass Shootings, 1982-2016</a></li>
 		<li><a href="http://bl.ocks.org/xujenna/raw/84a86dec213930ef8948448242977254/" target="new">Leading Causes of Death in NYC, 2011</a></li>
@@ -87,8 +92,7 @@ $(document).ready(function() {
 	<ul style="list-style:none;" class="collapse" id="ASH-nav">
 		<li><a href="/ASH/DonutDash/index.php" onclick="do_click();">Donut Dash 2017</a></li>
 		<li><a href="/ASH/Rebrand/index.php" onclick="do_click();">ASH Rebrand</a></li>
-		<li><a href="/ASH/WebRedesign/index.php" onclick="do_click();">ASH Website Redesign</a></li>
-<!-- 		<li><a href="http://www.53964.org/index.php?/info/ASH-Annual-Report/"  onclick="do_click();">ASH Annual Report</a></li> -->
+		<li><a href="https://www.weareash.org/" target="new">ASH Website Redesign</a></li>
 	</ul>
 	</li>
 
