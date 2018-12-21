@@ -209,4 +209,11 @@ hr {
 
 #description_text p {
 	margin-bottom: 15px;
+	word-spacing: 0.5;
+	font-size: 13.5px;
+}
+#description_text ol {
+	margin-bottom: 15px;
+	word-spacing: 0.5;
+	font-size: 13.5px;
 }

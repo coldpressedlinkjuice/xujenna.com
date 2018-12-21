@@ -57,7 +57,7 @@ $(document).ready(function() {
 	<ul class="accordion-group">
 	<li style="list-style:none;"><a href="#ITP-nav" data-toggle="collapse" data-parent="#accordion2"><div id="section-title">@ NYU ITP</div></a>
 	<ul style="list-style:none;" class="collapse" id="ITP-nav">
-	<li><a href="https://xujenna.com/NYQuotient/" target="new">How New York are you?</a></li>
+	<li><a href="https://www.xujenna.com/ITP/NYQuotient/index.php">How New York are you?</a></li>
 	<li><a href="/ITP/LifeSupport/index.php" onclick="do_click();">Life Support</a></li>
     <li><a href="https://xujenna.com/speakmemory/" target="new">Speak, (Random Access) Memory</a></li>
     	<li><a href="/ITP/CBTapp/index.php" onclick="do_click();">A Cognitive Behavioral Therapy App</a></li>
