@@ -12,33 +12,48 @@
     background-color: whitesmoke;
   }
 
+  body a:visited{
+    color:black;
+  }
+
   #start-button{
-    margin-bottom:100px;
+    /* display:block!important; */
+    margin:auto!important;
+    /* margin-top:100px; */
+    position:fixed;
+    bottom:30px;
+    right:10px;
+    background-color:transparent!important;
+    border:none!important;
+    box-shadow:none!important;
+    width:220px!important;
   }
 
   #start-button > button{
-    width:300px;
-    height:300px;
-    background-color: #ff3232;
-    border-radius: 300px;
-    font-size: 25px;
+    width:200px;
+    height:100px;
+    background-color:white;
+    /* border-radius: 250px; */
+    font-size: 23px;
     font-family: monospace;
     font-weight:bold;
-    color: white;
+    color: red;
     padding: 20px;
     cursor:pointer;
     text-align: center;
-    box-shadow: 0 20px #b20000;
-    border: none;
+    box-shadow: 10px 10px rgba(128,128,128, 0.5);
+    border: red 3px solid;
   }
 
   #start-button > button:hover {
     background-color: red;
+    color:white;
+    border: white 3px solid;
   }
   #start-button > button:active {
-    background-color: red;
-    box-shadow: 0 10px #b20000;
-    transform: translateY(10px)
+    /* background-color: red; */
+    box-shadow: 5px 5px rgba(128,128,128, 0.5);
+    transform: translateY(5px)
   }
 
   #start-button > button:focus{
@@ -90,7 +105,7 @@
   }
 
   #turnBar {
-    display: none;
+    /* display: none; */
     color:white;
     position:fixed;
     top:0px;
@@ -99,6 +114,7 @@
     padding:10px;
     background-color: grey;
     /* width:180px; */
+    z-index:-1;
   }
 
 #turnBar > div {
@@ -131,7 +147,7 @@
     color: red;
   }
 
-  .embeddingText {
+  #embeddingText {
     font-family:monospace;
     font-size:18px;
     font-weight:bold;
@@ -157,12 +173,10 @@
     font-weight:bold;
   }
  
-
-  .plotScore{
+  /* .plotScore{
     font-family:monospace;
     font-size:20px;
-    /* font-weight:bold; */
-  }
+  } */
 
   .player1line{
     stroke: orangered;
@@ -182,37 +196,50 @@
   #homepage h3{
     border-bottom: 1px solid black;
   }
-  #intro{
-    margin:auto;
-    width:55%;
-    margin-bottom:50px;
-    font-size:20px;
-    line-height:28px;
+
+  h1{
+    font-size:28px;
   }
-  #rules{
+
+  #homepage div{
     font-size: 16px;
-    width:30%;
+    width:25%;
     display:inline-block;
     text-align:left;
     margin-right:40px;
     line-height:24px;
+    border: 3px solid black;
+    background-color: white;
+    box-shadow: 10px 10px rgba(128,128,128, 0.5);
+    padding: 25px 40px;
+    vertical-align: top;
+  }
+
+  #intro{
+    margin:auto!important;
+    width:35%!important;
+    margin-bottom:50px!important;
+    font-size:20px!important;
+    line-height:28px!important;
+    border: 3px solid black;
+    background-color: white;
+    box-shadow: 10px 10px rgba(128,128,128, 0.5);
+    padding: 25px 45px 30px 45px!important;
+    display:block!important;
+    text-align:center!important;
   }
 
   #demo{
+    /* position:fixed; */
+    top:100px;
+    display:block;
+  }
+
+  /* #demo{
     display:inline-block;
     width:100%;
     height:300px;
-  }
-  #info{
-    font-size: 16px;
-    width:30%;
-    display:inline-block;
-    text-align:left;
-    margin-left:40px;
-    vertical-align: top;
-    line-height:24px;
-  }
-
+  } */
 
   #tsneSVG{
     width:100%;
@@ -223,6 +250,7 @@
     display:none;
     position:fixed;
     top:75px;
+    z-index:-2;
   }
   .title{
     text-transform: uppercase;
@@ -401,10 +429,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>word2vec</title>
+  <title>How New York Are You?</title>
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.13.3/dist/tf.min.js"> </script>
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-tsne"></script>
-  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="d3.v4.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase.js"></script>
   <script src="https://d3js.org/d3-ease.v1.min.js"></script>
 
@@ -414,31 +442,29 @@
 
 <div id="homepage">
   <div id="intro">
-    <p>
-        <h2>🗽🍎🚕</h2>
-        <h1>How New York are you?</h1></p>
-    <p>So you think you're a real New Yorker? Here's your chance to quantify how cool and cynical you are by comparing your opinions with those of all other New Yorkers—at least, those active on Twitter in 2018.</p>
+    <p>🗽🍎🚕</p>
+    <p><h1>How New York are you?</h1></p>
+    <p>So you think you're a real New Yorker? Well, here's your chance to quantify how cool and cynical you are by comparing your opinions with those of all other New Yorkers—at least, those active on Twitter in 2018.</p>
   </div>
   <div id="rules">
     <p><h3 class="title">How to play:</h3></p>
     <p>Speakers, a microphone (laptop built-ins are fine), and the Chrome browser are required. The computer will volley hot topic keywords from the past year, and two players will have one shot per topic to prove how aligned they are with most common New York opinions. But you have to be quick, because nothing is less cool than trying too hard.</p>
-    <p onclick="demo();" style="cursor:pointer"><i>Click here to view a demo.</i></p>
-    <p onclick="micTest();" style="cursor:pointer" id="micTest"><i>Click here to test your mic.</i></p>
-
-    <p id="playerNumDemo"></p>
-    <svg id="demo"></svg>
+    <p onclick="micTest();" id="micTest"><span style="cursor:pointer; text-decoration: underline">Click here to test your mic.</span></p>
+    <p onclick="demo();"><span style="cursor:pointer; text-decoration: underline;">Click here to view a demo.</span></p>
+    <!-- <p id="playerNumDemo"></p> -->
   </div>
 
   <div id="info">
     <p><h3 class="title">How it works:</h3></p>
-      <p>Each topic has a corresponding word2vec model that's trained on relevant tweets that originated in NYC from the past year. Word2vec models are able to statistically analyze corpora to estimate the relationships among its words, and embed them into a multidimensional space. Theoretically, the closer words are in this space, the more frequently they appear near each other in the corpus—thus, you can get a sense of what New Yorkers are tweeting, about which subjects, and with what frequency. Tensorflowjs then calculates the distances between words, which serves as the basis for the scoring system. The closer your responses are to the topic—and the faster you respond—the higher you score. For more details, <a href="https://www.xujenna.com/ITP/NYQuotient/index.php" target="new">see my documentation.</a></p>
+      <p>Each topic has a corresponding word2vec model that's trained on relevant tweets that originated in NYC from the past year. Word2vec analyzes corpora to find relationships among its words and embed them into a multidimensional space; the closer words are in this space, the more frequently they appear near each other in the corpus—thus, you can get a sense of what New Yorkers are tweeting, about which subjects, and with what frequency. Tensorflow.js then calculates the distances between words, which serves as the basis for the scoring system. The closer your responses are to the topic—and the faster you respond—the higher you score. For more details, <a href="https://www.xujenna.com/ITP/NYQuotient/index.php" target="new">see my documentation.</a></p>
     </div>
 
   <div id="start-button">Loading word2vec Model...</div>
-  <p style="font-size:12px">A project by <a href="http://www.xujenna.com" target="new">Jenna Xu</a>, completed in the Fall 2018 semester at ITP NYU.</p>
+  <!-- <p style="font-size:12px">A project by <a href="http://www.xujenna.com" target="new">Jenna Xu</a>, completed in the Fall 2018 semester at ITP NYU.</p> -->
 
 </div>
 
+<div id="demo"></div>
 
 
 <div id="tsneSVG"></div>
@@ -455,6 +481,8 @@
   <div id="error"><h1 id="tryAgain"></h1></div>
 
   <div id="restartButtonContainer">
+      <!-- Loading word2vec Model... -->
+      <!-- <button onclick="start();">START GAME</button> -->
       <!-- <button id="restart-button" onclick="restartGame();">Play Again</button> -->
     </div>
 

@@ -90,6 +90,8 @@ let xMax, xMin, yMax, yMin;
 let originCoords;
 let starter;
 let gameNum = 0;
+let demoDiv = document.getElementById('demo');
+let startButton = document.getElementById('start-button');
 
 for(var i = 0; i < allModels.length; i++){
  d3.select("#tsneSVG")
@@ -122,34 +124,63 @@ let modelsLoaded = 0;
 function modelLoaded() {
   modelsLoaded += 1;
   if (modelsLoaded == allModels.length) {
-    document.getElementById('start-button').innerHTML = "<button onclick='start();'>Start Game</button>";
+    document.getElementById('start-button').innerHTML = "<button onclick='start();'>START GAME</button>";
   }
 }
 
 
 function demo(){
-  let demoSVG = d3.select("#demo");
+  startButton.style.display="none";
+
+  let demoSVG = d3.select("#demo")
+    .append("svg:svg")
+    .attr("width", (window.innerWidth))
+    .attr("height", (window.innerHeight));
+
+  demoDiv.scrollIntoView({behavior:"smooth", block:"center"});
+
+  clearStats();
+  statCards.forEach(function(d){d.style.display="block"});
+  document.getElementById('countDown').style.display = "inline-block";
 
   demoSVG.selectAll("text").remove()
   demoSVG.selectAll("line").remove()
   demoSVG.selectAll("circle").remove()
 
-  let playerIndicator = document.getElementById("playerNumDemo");
-  playerIndicator.style.fontWeight = "bold";
-  playerIndicator.textContent = "PLAYER 1 TURN";
-  playerIndicator.style.color = "orangered"
+
+  function demoCountDown() {
+    demoCount += 1;
+    if(demoCount < 10){
+      document.getElementById('countDown').textContent = "00:0" + demoCount;
+    }
+    else if (demoCount >= 10){
+      document.getElementById('countDown').textContent = "00:" + demoCount;
+    }
+  }
+
+  let turnBar = document.getElementById("turnBar");
+  let playerIndicator = document.getElementById('player');
+  playerIndicator.textContent = "PLAYER 1 TURN"
+  turnBar.style.backgroundColor = "orangered";
 
   speak("cat");
+  let demoCount = 0;
+  let demoCounter = setInterval(demoCountDown, 1000);
+  let demoCounter2;
+  let demoCounter3;
+  let demoCounter4;
 
+  let randomX = Math.random() * (window.innerWidth - 800) + 400;
+  let randomY = Math.random() * (window.innerHeight - 500) + 250;
   demoSVG.append("circle")
-    .attr("cx", 225)
-    .attr("cy", 150)
+    .attr("cx", randomX)
+    .attr("cy", randomY)
     .attr("r", 4)
     .attr("fill", "dimgray");
   demoSVG.append("text")
     .text("cat")
-    .attr("x", 225 + 10)
-    .attr("y", 150 + 5)
+    .attr("x", randomX + 10)
+    .attr("y", randomY + 5)
     .attr("id", "newEmbeddingText")
     .attr("class", "player0text");
 
@@ -163,9 +194,10 @@ function demo(){
   msg.pitch = 1.5; //0 to 2
   msg.text = 'so cute';
   msg.lang = 'en-US';
-  setTimeout(function(){
+  setTimeout(function(){ 
     speechSynthesis.speak(msg);
     setTimeout(function(){
+      clearInterval(demoCounter);
       demoTurn(msg.text, 1);
     }, 800);
   }, 1500);
@@ -180,12 +212,16 @@ msg2.text = 'very fluffy';
 msg2.lang = 'en-US';
 
 setTimeout(function(){
-  playerIndicator.textContent = "PLAYER 2 TURN"
-  playerIndicator.style.color = "dodgerblue"
+  clearInterval(demoCounter);
+  demoCount = 0;
+  demoCounter2 = setInterval(demoCountDown, 1000);  
+  playerIndicator.textContent = "PLAYER 2 TURN";
+  turnBar.style.backgroundColor = "dodgerblue";
   speechSynthesis.speak(msg2);
   setTimeout(function(){
+    clearInterval(demoCounter2)
     demoTurn(msg2.text, 2);
-  }, 800);}, 3000);
+  }, 1000);}, 3000);
 
 
   setTimeout(function(){
@@ -194,48 +230,65 @@ setTimeout(function(){
     demoSVG.selectAll("circle").remove();
 
     speak("dog");
-    demoSVG.append("circle")
-    .attr("cx", 225)
-    .attr("cy", 150)
+    demoCount = 0;
+    demoCounter3 = setInterval(demoCountDown, 1000);   
+
+  randomX = Math.random() * (window.innerWidth - 800) + 400;
+  randomY = Math.random() * (window.innerHeight - 500) + 250;
+  demoSVG.append("circle")
+    .attr("cx", randomX)
+    .attr("cy", randomY)
     .attr("r", 4)
     .attr("fill", "dimgray");
   demoSVG.append("text")
     .text("dog")
-    .attr("x", 225 + 10)
-    .attr("y", 150 + 5)
+    .attr("x", randomX + 10)
+    .attr("y", randomY + 5)
     .attr("id", "newEmbeddingText")
     .attr("class", "player0text");
-    playerIndicator.textContent = "PLAYER 1 TURN"
-    playerIndicator.style.color = "orangered"
+    playerIndicator.textContent = "PLAYER 1 TURN";
+    turnBar.style.backgroundColor = "orangered";
   }, 5000);
 
   setTimeout(function(){
     msg.text = "i want one"
     speechSynthesis.speak(msg);
     setTimeout(function(){
+      clearInterval(demoCounter3)
       demoTurn(msg.text, 1);
-    }, 800);
+      }, 800);
   }, 6500);
 
   setTimeout(function(){
-    playerIndicator.textContent = "Player 2 TURN"
-    playerIndicator.style.color = "dodgerblue"
+    demoCount = 0;
+    demoCounter4 = setInterval(demoCountDown, 1000);   
+    playerIndicator.textContent = "PLAYER 2 TURN";
+    turnBar.style.backgroundColor = "dodgerblue";
     msg2.text = "they're good dogs brent"
     speechSynthesis.speak(msg2);
     setTimeout(function(){
+      clearInterval(demoCounter4)
       demoTurn(msg2.text, 2);
-    }, 1000);
-  }, 8000);
+      startButton.style.display="block";
+    }, 1500);
+  }, 8500);
+
 
   function demoTurn(string, playerNum){
     let words = string.split(" ");
+    let totalDistance = 0;
     words.forEach(function(d){
       let word = d;
-      let xCoord = Math.random() * 430;
-      let yCoord = Math.random() * 280;
+      let xCoord = Math.random() * (window.innerWidth - 400) + 200;
+      let yCoord = Math.random() * (window.innerHeight - 300) + 150;
+
+      let a = randomX - xCoord;
+      let b = randomY - yCoord;
+      totalDistance += Math.sqrt(a*a + b*b);
+
       var path = demoSVG.append("line")
-      .attr("x1", 225)
-      .attr("y1", 150)
+      .attr("x1", randomX)
+      .attr("y1", randomY)
       .attr("x2", xCoord)
       .attr("y2", yCoord)
       .attr("class", "player" + playerNum + "line")
@@ -255,7 +308,6 @@ setTimeout(function(){
     })
   
   function plotDemoWord(word,playerNum, xCoord, yCoord) {
-  
     demoSVG.append("text")
     .text(word)
     .attr("x", xCoord + 10)
@@ -270,12 +322,32 @@ setTimeout(function(){
     .attr("class", "player" + playerNum + "text");
   }
 
+
+  let demoTimePenalty = Math.pow(demoCount, 2) * 10;
+
+  if (playerNum == 1) {
+    playerOneScore += Math.round(100000/ Math.round(totalDistance));
+    playerOneDistance += Math.round(totalDistance);
+    playerOneTimePenalty += demoTimePenalty;
+    document.getElementById('playerOneScore').textContent = playerOneScore;
+    document.getElementById('playerOneDistance').textContent = playerOneDistance;
+    document.getElementById('playerOneTimePenalty').textContent = playerOneTimePenalty;
+  }
+  else if (playerNum == 2) {
+    playerTwoScore += Math.round(100000/ Math.round(totalDistance));
+    playerTwoDistance += Math.round(totalDistance);
+    playerTwoTimePenalty += demoTimePenalty;
+    document.getElementById('playerTwoScore').textContent = playerTwoScore;
+    document.getElementById('playerTwoDistance').textContent = playerTwoDistance;
+    document.getElementById('playerTwoTimePenalty').textContent = playerTwoTimePenalty;
+  }
+
 }
 }
 
 function micTest() {
   let instructions = document.getElementById('micTest');
-  instructions.textContent += " Give your mic permission, then say something. The transcript will appear here: "
+  instructions.innerHTML += "<p style='text-decoration:none'><i>Give your mic permission, then say something. The transcript will appear here:</i></p> "
   
   const recognition = new SpeechRecognition();
   recognition.lang = 'en-US';
@@ -288,7 +360,7 @@ function micTest() {
     for (var i = event.resultIndex; i < event.results.length; ++i) {
       if (event.results[i].isFinal) {
         recognition.stop();
-        instructions.textContent += event.results[i][0].transcript;
+        instructions.innerHTML += "<p>" + event.results[i][0].transcript + "</p>";
       }
       // else{
       //   interim_transcript += event.results[i][0].transcript;
@@ -296,15 +368,23 @@ function micTest() {
     }
   }
   recognition.onend = () => {
-    instructions.textContent += " 👍"
+    // instructions.textContent += " 👍"
   }
   recognition.onerror = event => {
     console.log("error: " + event.error);
-    instructions.textContent += "Error: " + event.error + ". Are you using Chrome?"
-
+    instructions.innerHTML += "<b><span style='color:red'> Error: " + event.error + ". </span></b>"
   }
 }
 
+
+function clearStats(){
+  document.getElementById('playerOneScore').textContent = 0;
+  document.getElementById('playerOneDistance').textContent = 0;
+  document.getElementById('playerOneTimePenalty').textContent = 0;
+  document.getElementById('playerTwoScore').textContent = 0;
+  document.getElementById('playerTwoDistance').textContent = 0;
+  document.getElementById('playerTwoTimePenalty').textContent = 0;
+}
 
 function start() {
   clearInterval(counter);
@@ -317,39 +397,29 @@ function start() {
   yMax = d3.max(data, function (d) { return d[1] });
   yMin = d3.min(data, function (d) { return d[1] });
 
-  statCards.forEach(function (d) {
-    d.style.display = "inline-block";
-  })
-  document.getElementById("highScore").style.display = "none";
-  // document.getElementById('restart-button').style.display = "none";
-  document.querySelector('#start-button > button').style.display = "none";
-  document.getElementById('homepage').style.display = "none";
-
-
-  turnBar.style.display = "block";
-
   if(gameNum == 0){
+    clearStats();
     SVGlist[gameNum].style.display = "block";
+    turnBar.style.backgroundColor = "grey";
+    document.getElementById('player').textContent = "";
+    demoDiv.style.display ="none";
+    startButton.style.display="none";
+    document.getElementById('homepage').style.display = "none";
+
+    statCards.forEach(function (d) {
+      d.style.display = "inline-block";
+    })
+    document.getElementById("highScore").style.display = "none";
+    document.getElementById('countDown').style.display = "inline-block";
+
   }
   else if(gameNum > 0){
-    // let concentricCircles = document.querySelectorAll('.concentricCircles');
-    // concentricCircles.forEach(function(d){
-    //   d.remove();
-    // })
     SVGlist[gameNum-1].style.display = "none";
     SVGlist[gameNum].style.display = "block";
-
   }
-  // plotSVG.attr;
-  // plotSVG = d3.select("#tsneSVG")
-  //   .append("svg:svg")
-  //   .attr("width", (window.innerWidth - 120))
-  //   .attr("height", (window.innerHeight - 50));
-
-  document.getElementById('countDown').style.display = "inline-block";
 
 
-  starter = allStarters[gameNum]
+  starter = allStarters[gameNum];
 
   // document.getElementById('currentWord').textContent = starter;
   getCoordinates(starter, 0, 0, 0);
@@ -360,7 +430,6 @@ function start() {
   else if (starter =="#seducemein4words"){
     speak("Hashtag Seduce Me In Four Words")
     setTimeout(function () { newTurn(); }, 1800);
-
   }
   else {
     speak(starter);
@@ -371,6 +440,16 @@ function start() {
 
 function newTurn() {
   clearInterval(counter);
+  let count = 0;
+  counter = setInterval(function () {
+    count += 1;
+    if(count < 10){
+      document.getElementById('countDown').textContent = "00:0" + count;
+    }
+    else if (count >= 10){
+      document.getElementById('countDown').textContent = "00:" + count;
+    }
+  }, 1000);
 
   if (tryAgain == true) {
     tryAgain = false;
@@ -389,21 +468,6 @@ function newTurn() {
   console.log("newTurn PlayerNum: " + playerNum)
 
   document.getElementById('player').textContent = "PLAYER " + playerNum + " TURN";
-
-
-
-
-  let count = 0;
-  counter = setInterval(function () {
-    count += 1;
-    if(count < 10){
-      document.getElementById('countDown').textContent = "00:0" + count;
-    }
-    else if (count >= 10){
-      document.getElementById('countDown').textContent = "00:" + count;
-    }
-  }, 1000);
-
 
   let newString = "";
   let timePenalty;
@@ -452,10 +516,10 @@ function newTurn() {
     // try {  
 
     if(newString.length > 0){
-      let plotScores = document.querySelectorAll(".plotScore");
-      if(plotScores.length > 0){
-      plotScores.forEach(function(d){d.remove();})
-      }
+      // let plotScores = document.querySelectorAll(".plotScore");
+      // if(plotScores.length > 0){
+      // plotScores.forEach(function(d){d.remove();})
+      // }
       let totalDistance = Math.round(distance(newString, timePenalty, playerNum));
   
       if(totalDistance >=0){
@@ -509,7 +573,7 @@ function newTurn() {
             setTimeout(function () { gameOver(); }, 1000);
           }
           else {
-            setTimeout(function () { start() }, 3000);
+            setTimeout(function () { start() }, 2000);
           }
         }
         else {
@@ -518,23 +582,7 @@ function newTurn() {
       }
     }
 
-    // getCoordinates(newString, score, timePenalty, playerNum);
-
-
-
-    // }
-    // catch(err){
-    //   console.log("error: " + err)
-    //   if(err=="no-speech"){
-    //     speak("Time's up!")
-    //     setTimeout(function(){start()}, 2500);
-    //   }
-    //   // document.getElementById('tryAgain').textContent = "Try again ('" + newString + "' not in model)";
-    //   // speak("Try again ('" + newString + "' not in model)");
-    //   // tryAgain = true;
-    //   // setTimeout(function(){newTurn()}, 3200);
-    // }
-  }
+    }
   recognition.onerror = event => {
     console.log("error: " + event.error);
     if (event.error == "no-speech") {
@@ -548,17 +596,16 @@ function newTurn() {
           setTimeout(function () { gameOver(); }, 1000);
         }
         else {
-          setTimeout(function () { start() }, 3000);
+          setTimeout(function () { start(); }, 1800);
         }
       }
       else {
-        setTimeout(function () { newTurn() }, 3000);
+        setTimeout(function () { newTurn() }, 1800);
       }
    
     }
   }
 }
-
 
 
 const scale = (num, in_min, in_max, out_min, out_max) => {
@@ -573,7 +620,8 @@ let currentSVG = d3.select(SVGlist[gameNum]);
   let prevEmbedding = document.querySelectorAll('#newEmbeddingText');
   prevEmbedding.forEach(function(d){
     d.removeAttribute("id");
-    d.classList.add("embeddingText");
+    // d.classList.add("embeddingText");
+    d.setAttribute("id", "embeddingText")
   })
   }
 
@@ -664,7 +712,7 @@ let currentSVG = d3.select(SVGlist[gameNum]);
       .text(d)
       .attr("x", xCoord + 10)
       .attr("y", yCoord + 5)
-      .attr("id", "newEmbeddingText")
+      .attr("class", "newEmbeddingText")
       .attr("class", "player0text");
   }
 
